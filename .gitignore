@@ -4,5 +4,8 @@
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 aws_access
+<<<<<<< HEAD
 Linux
 Linux/*
+=======
+>>>>>>> bb476bfbb79d4246e30d6f6f034c65510e3cbd06
