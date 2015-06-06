@@ -26,7 +26,7 @@
 					$(this).addClass('active');
 					var id  = $(this).attr("id").replace('post-','');
 					var strout = "";
-					strout +="<tr class='trdrp'><td colspan='6'>";
+					strout +="<tr class='trdrp'><td colspan='7'>";
 					strout +="<div class='dropdown'>";
 					strout +="<fieldset>";
 					strout +="<label><span>Address </span><span class='cell'>"+row2[id].adress+"</span></label>";
@@ -40,7 +40,7 @@
 					strout +="<label><span>Website </span><span class='add'>"+row2[id].website+"</span></label>";
 					strout +="<label><span>Notes</span><span class='email'>"+row2[id].notes+"</span></label>"; 
 					strout +="<fieldset>";
-					strout +="</div><td></tr>";
+					strout +="</div></td></tr>";
 					$(this).showRow(strout);
 				}
 				else
