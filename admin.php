@@ -378,12 +378,13 @@
 					<thead>
 						<tr>
 							<th class="iD">ID</th>
+							<th class="">Client</th>
 							<th class="oD">Order Date</th>
 							<th class="dD">Date Due</th>
 							<th class="lA">Language</th>
 							<th class="nP">Nbr of Pages</th>
 							<th class="eM">Email</th>
-							<th class="nA">Name</th>
+							<th class="nA">Contact Name</th>
 							<th class=""></th>
 							<th class=""></th>
 						</tr>
@@ -393,12 +394,13 @@
 					<tfoot>
 						<tr>
 							<th class="iD">ID</th>
+							<th class="">Client</th>
 							<th class="oD">Order Date</th>
 							<th class="dD">Date Due</th>
 							<th class="lA">Language</th>
 							<th class="nP">Nbr of Pages</th>
 							<th class="eM">Email</th>
-							<th class="nA">Name</th>
+							<th class="nA">Contact Name</th>
 							<th class=""></th>
 							<th class=""></th>
 						</tr>
