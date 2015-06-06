@@ -1,9 +1,12 @@
 <?php include('header.php') ?>
+  <div class="inner calendar">
+  	<div id="calendar"><i class="fa fa-close cal-close"></i></div>
+  </div>
   <div class="modal-holder">
 	<div class="modal">
-		<div class="close">x</div>
+		<div class="close"><i class="fa fa-close"></i></div>
 		<form id="requestt" class="modalBox clearfix">
-			<h2>Create Interpreting Request</h2>
+			<h2><i class="fa fa-plus-circle"></i>Create Request</h2>
 			<div>
 				<input name="client" type="text" placeholder="Client"
 					class="required">
@@ -11,6 +14,16 @@
 			<div>
 				<label class="required">Appointment Date</label><input
 					name="app_date" type="date">
+			</div>
+			<div>
+				<label>Appointment Type</label>
+				<select name="app_type" type="text">
+					<option value='Med' selected>Medical</option>
+					<option value='Cpmm'>Community</option>
+					<option value='Leg'>Legal</option>
+					<option value='Co'>Court</option>
+					<option value='Conf'>Conference</option>
+				</select>
 			</div>
 			<div>
 				<label class="required">Start Time</label> <select
@@ -22,7 +35,7 @@
 					class="required">
 			</div>
 			<div>
-				<label class="required">Language </label><select name="lang"
+				<label class="required">Language</label><select name="lang"
 					type="text" placeholder="Language" class="required"></select>
 			</div>
 			<div>
@@ -64,7 +77,7 @@
 		</form>
 
 		<form id="order" class="modalBox clearfix">
-			<h2>Create Translation Order</h2>
+			<h2><i class="fa fa-cart-plus"></i>Create Order</h2>
 			<div>
 				<input name="client_name" type="text" placeholder="Client Name"
 					class="required">
@@ -124,7 +137,7 @@
 		</form>
 
 		<form id="client" class="modalBox clearfix">
-			<h2>Create New Client</h2>
+			<h2><i class="fa fa-bank"></i>Create New Client</h2>
 			<div>
 				<input name="name" type="text" placeholder="Client Name"
 					class="required">
@@ -171,7 +184,7 @@
 			</div>
 		</form>
 		<form id="interpreter" class="modalBox clearfix">
-			<h2>Create New Interpreter</h2>
+			<h2><i class="fa fa-user-plus"></i>Create New Interpreter</h2>
 			<div>
 				<input name="first_name" type="text" placeholder="First Name"
 					class="required">
@@ -230,11 +243,11 @@
 				<label>Native Country </label><select id="country"
 					name="country" type="text" placeholder="Native Country"
 				    ></select>
-				    <script language="javascript">
+				    <script type="text/plain">
 					populateCountries("country");
  					</script>
 			</div>
-			
+			   
 			<div>
 				<input name="cert_one" type="text" placeholder="Certification 1">
 			</div>
@@ -278,6 +291,7 @@
 	</div>
   </div>
 	<!--end modal-->
+
 	<div class="header">
 		<div class="inner-fluid clearfix">
 			<div class="logo">
@@ -293,22 +307,32 @@
 	</div>
 	<div id="admin-con" class="container clearfix">
 		<div class="admin-controls">
-			<h2>Controls</h2>
-			<p class="requestt">Create Request</p>
-			<p class="order">Create Order</p>
-			<p class="client">Create Client</p>
-			<p class="interpreter">Create Interpreter</p>
+			<div class="admin-controls-nav">
+				<p class="requestt option"><i class="fa fa-plus-circle"></i>Create Request</p>
+				<p class="order option"><i class="fa fa-cart-plus"></i>Create Order</p>
+				<p class="client option"><i class="fa fa-bank"></i>Create Client</p>
+				<p class="interpreter option"><i class="fa fa-user-plus"></i>Create Interpreter</p>
+			</div>
+			<div class="footer">
+				<p>Copyright &copy; 2014-2015 Culturally Yours Interpreting,Inc-All Rights Reserved.</p>
+			</div>
+		</div><!--end of admin-controls nav-->
+
+		<div class="cal-icon cal-close">
+			<i class="fa fa-calendar"></i>
+			<p>View Calendar</p>
 		</div>
+
 		<div id="admin-tabs" class="floated admin-tabs">
 			<ul>
-				<li><a href="#tabs-5">Request Calendar</a></li>
-				<li><a href="#tabs-1">Interpreting Request</a></li>
-				<li><a href="#tabs-2">Translation Order</a></li>
+				<li><a href="#tabs-5">QuickBooks</a></li>
+				<li><a href="#tabs-1">Requests</a></li>
+				<li><a href="#tabs-2">Orders</a></li>
 				<li><a href="#tabs-3">Clients</a></li>
 				<li><a href="#tabs-4">Interpreters</a></li>
 			</ul>
 			<div id="tabs-5" class="requestcal">
-				<div id="calendar"></div>
+				
 			</div>
 			<div id="tabs-1" class="interreq">
 				<table sortable>
@@ -316,6 +340,7 @@
 						<tr>
 							<th class="iD">ID</th>
 							<th class="aSS">Assign</th>
+							<th class="">Client</th>
 							<th class="aDU">App. Date</th>
 							<th class="sT">Start Time</th>
 							<th class="dU">Duration</th>
@@ -323,12 +348,17 @@
 							<th class="aDM">Assigned To</th>
 							<th class="cN">Onsite Contact</th>
 							<th class="fU">Follow Up Call</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</thead>
+					<tbody>
+					</tbody>
 					<tfoot>
 						<tr>
 							<th class="iD">ID</th>
 							<th class="Ass">Assign</th>
+							<th class="">Client</th>
 							<th class="aDU">App. Date</th>
 							<th class="sT">Start Time</th>
 							<th class="dU">Duration</th>
@@ -336,10 +366,11 @@
 							<th class="aDM">Assigned To</th>
 							<th class="cN">Onsite Contact</th>
 							<th class="fU">Follow Up Call</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</tfoot>
-					<tbody>
-					</tbody>
+				
 				</table>
 			</div>
 			<div id="tabs-2" class="transreq">
@@ -353,8 +384,12 @@
 							<th class="nP">Nbr of Pages</th>
 							<th class="eM">Email</th>
 							<th class="nA">Name</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</thead>
+					<tbody>
+					</tbody>
 					<tfoot>
 						<tr>
 							<th class="iD">ID</th>
@@ -364,10 +399,11 @@
 							<th class="nP">Nbr of Pages</th>
 							<th class="eM">Email</th>
 							<th class="nA">Name</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</tfoot>
-					<tbody>
-					</tbody>
+				
 				</table>
 			</div>
 			<!--//End of Tab 2-->
@@ -381,8 +417,12 @@
 							<th class="pH">Phone</th>
 							<th class="cE">Cell</th>
 							<th class="Fa">Fax</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</thead>
+					<tbody>
+					</tbody>
 					<tfoot>
 						<tr>
 							<th class="iD">ID</th>
@@ -391,10 +431,11 @@
 							<th class="pH">Phone</th>
 							<th class="cE">Cell</th>
 							<th class="Fa">Fax</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</tfoot>
-					<tbody>
-					</tbody>
+					
 				</table>
 			</div>
 			<!--//End of Tab 3-->
@@ -411,6 +452,8 @@
 							<th class="lA4">Lang4</th>
 							<th class="aV">Avail</th>
 							<th class="cE">Certif</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</thead>
 					<tfoot>
@@ -424,6 +467,8 @@
 							<th class="lA4">Lang4</th>
 							<th class="aV">Avail</th>
 							<th class="cE">Certif</th>
+							<th class=""></th>
+							<th class=""></th>
 						</tr>
 					</tfoot>
 					<tbody>
@@ -433,4 +478,5 @@
 			<!--//End of Tab 4-->
 		</div>
 	</div>
-<?php include('footer.php') ?>
+	</div>
+</body>
