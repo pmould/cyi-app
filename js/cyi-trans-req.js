@@ -12,7 +12,7 @@
 			console.log('');
 			$.each(data, function(i, v){
 				row1[v.trans_order_id] ={trans_order_id:v.trans_order_id, submit_date:v.timestamp,due_date:v.due_date,lang:v.lang,nbr_of_pages:v.nbr_of_pages,email:v.cust_email,name:v.cust_name};
-				row2[v.trans_order_id] ={doc_type:v.doc_type,phone_num:v.cust_phone,fax_num:v.cust_fax,notes:v.notes,rate:v.rate,notoring_rqd:v.notoring_rqd,location:v.location};
+				row2[v.trans_order_id] ={doc_type:v.doc_type,phone_num:v.cust_phone,fax_num:v.cust_fax,notes:v.notes,rate:v.rate,notoring_rqd:v.notoring_rqd};
 			});
 			undf(row1);  
 			undf(row2);
