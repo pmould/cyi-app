@@ -99,7 +99,7 @@ $.getJSON(endpts.request, function(response){
 		tbr.addClass('active');
 		var id  = tbr.attr("id").replace('post-','');
      	var strout = "";
-        strout +="<tr class='trdrp'><td colspan='8'>";
+        strout +="<tr class='trdrp'><td colspan='12'>";
         strout +="<div class='dropdown'>";
         strout +="<fieldset>";
         strout +="<label><span>LEP Name</span><span class='name'>"+row2[id].lep_name+"</span></label>";
@@ -114,7 +114,7 @@ $.getJSON(endpts.request, function(response){
         strout +="<label><span>Location Notes</span><span class='phone'>"+row2[id].location_notes+"</span></label>";
         strout +="<label><span>Request Notes</span><span class='phone'>"+row2[id].request_notes+"</span></label>";
         strout +="</fieldset>";
-        strout +="</div><td></tr>";
+        strout +="</div></td></tr>";
     	tbr.showRow(strout);
     	}
     	else

@@ -69,11 +69,12 @@
 												minTime:"06:00:00",
 												maxTime:"21:00:00",
 												events : eventSrc,
+												height : 300,
 												defaultView : "agendaWeek",
 												header : {
-													left : 'title',
-													center : '',
-													right : 'today prev,next'
+													left : 'month,agendaWeek,agendaDay',
+													center : 'title',
+													right : 'today,prev,next'
 												},
 												eventAfterAllRender : function() {
 													document

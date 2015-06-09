@@ -27,7 +27,7 @@
 
 					var id  = $(this).getId();
 					var strout = "";
-					strout +="<tr class='trdrp'><td colspan='8'>";
+					strout +="<tr class='trdrp'><td colspan='12'>";
 					strout +="<div class='dropdown'>";
 
 					strout +="<fieldset>";
@@ -51,7 +51,7 @@
 					strout +="<label><span>Work Authorization</span><span class='add'>"+row2[id].work_auth_vrfd+"</span></label>";
 					strout +="<label><span>Native Country: </span><span class='country'>"+row2[id].country+"</span></label>";
 					strout +="</fieldset>";
-					strout +="</div><td></tr>";
+					strout +="</div></td></tr>";
 					$(this).showRow(strout);    	}
 				else
 				{
