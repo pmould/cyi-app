@@ -1,56 +1,95 @@
 (function($){
-	$.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/clients", function(response){
-		$(function(){
+     $(function(){
+        $.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/clients", function(response){
+       
 
-			//response = '[{ "trans_order_id" : 1,   "doc_type" : "birth certificate",   "client_id" : 1,    "lang" : "German",  "timestamp" : "2015-03-02 00:00:00",    "due_date" : "2015-03-10",  "cust_name" : "20", "notes" : "please hurry up!!!", "cust_email" : NULL,    "nbr_of_pages" : NULL,  "cust_phone" : "",  "cust_fax" : NULL,  "notoring_rqd" : ""},{  "trans_order_id" : 2,   "doc_type" : "death certificate",   "client_id" : 1,    "lang" : "french",  "timestamp" : "2015-01-02 00:00:00",    "due_date" : "2015-05-06",  "cust_name" : "20", "notes" : "You can take your time....", "cust_email" : NULL,    "nbr_of_pages" : NULL,  "cust_phone" : "",  "cust_fax" : NULL,  "notoring_rqd" : ""},{  "trans_order_id" : 3,   "doc_type" : "marriage certificate",    "client_id" : 1,    "lang" : "Spanish", "timestamp" : "2015-02-14 00:00:00",    "due_date" : "2015-03-18",  "cust_name" : "20", "notes" : "How I love her....", "cust_email" : NULL,    "nbr_of_pages" : NULL,  "cust_phone" : "",  "cust_fax" : NULL,  "notoring_rqd" : ""}]';
+            //response ='[{"client_id":1,"adress":"689 Mableton Pkwy","marketer":"Donnie Regan","website":"www.masmenidas.com","phone_num":"0","cell_num":"678500412","fax_num":"0","other_num":"0","email":"dine@live.fr","lang_list_id":0,"notes":"","zipcode":30309,"name":"Dromadaire Silicon"},{"client_id":958,"adress":"Brookwood Peachtree Medical Office\n1745 Peachtree ","marketer":"Sylvie Ndiaye","website":"","phone_num":"404","cell_num":"404","fax_num":"0","other_num":"0","email":"kaiser@yahoo.com","lang_list_id":0,"notes":"bananna apple orange","zipcode":30309,"name":"Kaiser Permanente"},{"client_id":959,"adress":"200 Peachtree Industrial Bldvd","marketer":"Nicolas LeBeurre","website":"wwww.sharkauto.com","phone_num":"8004567812","cell_num":"","fax_num":"","other_num":"","email":"manager@shark.com","lang_list_id":0,"notes":"mickey and donald","zipcode":30340,"name":"Shark Auto,LLC"}]';
 
-			response= JSON.stringify(response);
-			response= escape(response);
+            response= JSON.stringify(response);
+            response= escape(response);
 
-			var data = $.parseJSON(response);
-			var row1 = {};
-			var row2 = {};
+            var data = $.parseJSON(response);
+            var row1 = {};
+            var row2 = {};
 
-			$.each(data, function(i, v){
-				row1[v.client_id] ={client_id:v.client_id,name:v.name,phone_num:v.phone_num,cell_num:v.cell_num,fax_num:v.fax_num};
-				row2[v.client_id] ={website:v.website,marketer:v.marketer,adress:v.adress,zipcode:v.zipcode,notes:v.notes,other_num:v.other_num,email:v.email,contact:v.contact};
-			});  
-			undf(row1); 
-			undf(row2);
-			var tbC = "clients"; 
-			printrows(row1,tbC);
-			$('.clients tbody tr').click(function(e){
-				var thistr = $(this);         
-				if (!$(this).hasClass('active'))
-				{
-					$(this).addClass('active');
-					var id  = $(this).attr("id").replace('post-','');
-					var strout = "";
-					strout +="<tr class='trdrp'><td colspan='7'>";
-					strout +="<div class='dropdown'>";
-					strout +="<fieldset>";
-					strout +="<label><span>Address </span><span class='cell'>"+row2[id].adress+"</span></label>";
-					strout +="<label><span>Zipcode </span><span class='phone'>"+row2[id].zipcode+"</span></label>";
-					strout +="<label><span>Other Number</span><span class='phone'>"+row2[id].other_num+"</span></label>";
-					strout +="<label><span>Contact Name</span><span class='eM'>"+row2[id].contact+"</span></label>";
-					strout +="</fieldset>"
-						strout +="<fieldset>";
-					strout +="<label><span>Email</span><span class='eM'>"+row2[id].email+"</span></label>";
-					strout +="<label><span>Marketer</span><span class='eM'>"+row2[id].marketer+"</span></label>";
-					strout +="<label><span>Website </span><span class='add'>"+row2[id].website+"</span></label>";
-					strout +="<label><span>Notes</span><span class='email'>"+row2[id].notes+"</span></label>"; 
-					strout +="<fieldset>";
-					strout +="</div></td></tr>";
-					$(this).showRow(strout);
-				}
-				else
-				{
-					$(this).hideRow();
-				}
-			});
+            $.each(data, function(i, v){
+                row1[v.client_id] ={client_id:v.client_id,name:v.name,phone_num:v.phone_num,cell_num:v.cell_num,fax_num:v.fax_num};
+                row2[v.client_id] ={website:v.website,marketer:v.marketer,adress:v.adress,zipcode:v.zipcode,notes:v.notes,other_num:v.other_num,email:v.email,contact:v.contact};
+            });  
+            undf(row1); 
+            undf(row2); 
+
+            var tbC = "clients"; 
+            printrows(row1,tbC);
+            $('.clients tbody tr').click(function(e){
+                var thistr = $(this);         
+                if (!$(this).hasClass('active'))
+                {
+                    $(this).addClass('active');
+                    var id  = $(this).attr("id").replace('post-','');
+                    var strout = "";
+                    strout +="<tr class='trdrp'><td colspan='7'>";
+                    strout +="<div class='dropdown'>";
+                    strout +="<fieldset>";
+                    strout +="<label><span>Address </span><span class='cell'>"+row2[id].adress+"</span></label>";
+                    strout +="<label><span>Zipcode </span><span class='phone'>"+row2[id].zipcode+"</span></label>";
+                    strout +="<label><span>Other Number</span><span class='phone'>"+row2[id].other_num+"</span></label>";
+                    strout +="<label><span>Contact Name</span><span class='eM'>"+row2[id].contact+"</span></label>";
+                    strout +="</fieldset>"
+                        strout +="<fieldset>";
+                    strout +="<label><span>Email</span><span class='eM'>"+row2[id].email+"</span></label>";
+                    strout +="<label><span>Marketer</span><span class='eM'>"+row2[id].marketer+"</span></label>";
+                    strout +="<label><span>Website </span><span class='add'>"+row2[id].website+"</span></label>";
+                    strout +="<label><span>Notes</span><span class='email'>"+row2[id].notes+"</span></label>"; 
+                    strout +="<fieldset>";
+                    strout +="</div></td></tr>";
+                    $(this).showRow(strout);
+                }
+                else $(this).hideRow();
+            });
+        $('.clients tbody .table-actions .edit').click(function(){
+        
+        var children = $(this).parent().parent().children(); //return array of child elements of table row
+        tbId = $($(this).parent().parent().children()[0]).text();  //get value of first child element(ID table row)
+
+        //iterate through object to find match for id of current table row
+        $.each(data, function(i, v){
+
+            if (tbId == v.client_id)
+            tr={client_id:v.client_id,name:v.name,phone_num:v.phone_num,cell_num:v.cell_num,fax_num:v.fax_num,
+                website:v.website,marketer:v.marketer,adress:v.adress,zipcode:v.zipcode,notes:v.notes,other_num:v.other_num,email:v.email,contact:v.contact};
+
+        });//console.log(tr.inter_request_id);
+
+        //display contents of current table row in edit form
+        var formOutput = "<div><input name='inter_request_id' hidden='true' value='"+tr.client_id+"'></div>"
+        formOutput += "<div class='ui-front'><label>Client Name<label><input name='name' type='text' placeholder='"+tr.name+"'></div>";
+        formOutput += "<div><label>Contact<label><input name='contact' value='"+tr.contact+"'></div>";
+        formOutput += "<div><label>Marketer<label><input name='marketer' placeholder='"+tr.marketer+"'></div>";
+        formOutput += "<div><label>Address<label><input name='adress' placeholder='"+tr.adress+"'></div>";
+        formOutput += "<div><label>Zipcode<label><input name='zipcode' placeholder='"+tr.zipcode+"'></div>";
+        formOutput += "<div><label>Email<label><input name='email' placeholder='"+tr.email+"'></div>";
+        formOutput += "<div><label>Phone Number<label><input name='phone_num' placeholder='"+tr.phone_num+"'></div>";
+        formOutput += "<div><label>Cell Number<label><input name='cell_num' placeholder='"+tr.cell_num+"'></div>";
+        formOutput += "<div><label>Alternate Number<label><input name='other_num' placeholder='"+tr.other_num+"'></div>";
+        formOutput += "<div><label>Fax<label><input name='fax_num' placeholder='"+tr.fax_num+"'></div>";
+        formOutput += "<div><label>Website URL<label><input name='website' placeholder='"+tr.website+"'></div>";
+        formOutput += "<div><label>Notes<label><textarea name='notes' placeholder='"+tr.notes+"'></textarea></div>";
+        
+
+        formOutput += "<div><input type='button' value='CANCEL' class='request cancel'><input type='submit' value='SUBMIT' class='request'></div>";
 
 
-		});
-	});
+        // display empty modal box
+        $('body').append( $('.modal-holder').css('display','block') );       
+
+        //display edit form
+        $('.editBox').css('display','block');
+        $('.editBox p').html(formOutput);
+    });
+
+        
+        }); //getJSON
+    });
 
 })(jQuery);
