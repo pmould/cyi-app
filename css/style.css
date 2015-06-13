@@ -410,102 +410,7 @@ tr {
 tbody tr {
 	cursor: pointer
 }
-/*.iD {
-	width: 50%
-}
-.interreq  td.dU::after {
-	content: " hours"
-}
-.interreq .aID {
-	width: 100%
-}
-.interreq .aDM, .interreq .aDU {
-	width: 100%;
-}
-.interreq .sT, .interreq .eT {
-	width: 100%;
-}
-.interreq .La {
-	width: 100%;
-}
-.interreq .cN {
-	width: 100%;
-}
-.interreq .fU {
-	width: 100%;
-}
-.interreq .aS {
-	width: 5.5em;
-}
-td.Ass {
-	border-right: 1px solid #CCC;
-	border-left: 1px solid #CCC
-}
-td.aSS select {
-	width: 100%
-}
-td.aSS {border-right: 1px solid #CCC;border-left: 1px solid #CCC}
-        td.Ass select {width: 100%}
-.transreq .aID {
-	width: 100%
-}
-.transreq .dR {
-	width: 100%;
-}
-.transreq .dD {
-	width: 100%;
-}
-.transreq .lA {
-	width: 100%;
-}
-.transreq .cA {
-	width: 100%;
-}
-.transreq .fU {
-	width: 5.5em;
-}
-.clients .fN {
-	width: 100%
-}
-.clients .nL {
-	width: 100%;
-}
-.clients .aDD {
-	width: 100%;
-}
-.clients .pH {
-	width: 100%;
-}
-.clients .cE {
-	width: 100%;
-}
-.clients .eM {
-	width: 100%;
-}
-.intr .iID {
-	width: 100%
-}
-.intr .fN {
-	width: 100%
-}
-.intr .lA {
-	width: 100%
-}
-.intr .aDD {
-	width: 100%
-}
-.intr .pL {
-	width: 100%
-}
-.intr .aV {
-	width: 100%
-}
-table th, table td {
-	width: 100%
-}
-.header {
-	background-color: yellow
-}*/
+
 /*----- Accordion -----*/
 .accordion, .accordion * {
 	-webkit-box-sizing: border-box;
@@ -612,7 +517,7 @@ table th, table td {
 /*Drop Down Styles 
    Interpreter Tab*/
 .transreq fieldset label:first-child {
-/*	width: 300px;*/
+	/*width: 300px;*/
 }
 /*Drop Down Styles 
    Interpreter Tab*/
@@ -752,16 +657,24 @@ label.error {
 	color: #fff;
 	text-shadow: none
 }
-.fc-title{padding-top:10px !important}
+
+.fc-title
+{
+	padding-top:10px !important;
+}
 .fc-time-grid .fc-slats td {
   height: 35px;
   border-bottom: 0;
 }
 .qtip .item, .qtip .qtip-title{padding: 5px 10px;font-size: 12px;line-height: 12px;width: 210px;margin-right: -28px;}
 .qtip .item:nth-of-type(even) {background: rgba(243, 243, 243, 0.85);}
-.qtip .name{font-style:italic;width: 106px;display:inline-block;}
-.qtip .value{font-weight:800;width: 77px;display:inline-block;vertical-align:top}
-.qtip-content{width: 100%;padding: 9px 10px}
-.qtip-bootstrap{background:#fefefe}
-.qtip-bootstrap .qtip-content {padding:0}
-.tooltip-title{text-decoration:underline;font-weight:bold}
+.qtip .name
+{font-style:italic;width: 106px;display:inline-block;}
+.qtip .value
+{font-weight:800;width: 77px;display:inline-block;vertical-align: top;}
+.qtip-content
+{width: 100%;padding: 9px 10px;}
+.qtip-bootstrap{background-color: rgba(255, 255, 255, 0.9)}
+.qtip-bootstrap .qtip-content {padding: 0px}
+.tooltip-title{text-decoration: underline;font-weight:bolder} 
+
