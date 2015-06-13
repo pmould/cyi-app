@@ -85,28 +85,19 @@
   	<div id="calendar"><i class="fa fa-close cal-close"></i></div>
   </div>
   <div class="modal-holder">
-	<div class="modal">
+	<div class="modal ui-widget">
 		<div class="close"><i class="fa fa-close"></i></div>
 		<form id="requestt" class="modalBox clearfix">
 			<h2><i class="fa fa-plus-circle"></i>Create Request</h2>
-			<div>
+			<div class="ui-front">
 				<input name="client" type="text" placeholder="Client"
-					class="required">
+					class="required c">
 			</div>
 			<div>
 				<label class="required">Appointment Date</label><input
 					name="app_date" type="date">
 			</div>
-			<div>
-				<label>Appointment Type</label>
-				<select name="app_type" type="text">
-					<option value='Med' selected>Medical</option>
-					<option value='Cpmm'>Community</option>
-					<option value='Leg'>Legal</option>
-					<option value='Co'>Court</option>
-					<option value='Conf'>Conference</option>
-				</select>
-			</div>
+			
 			<div>
 				<label class="required">Start Time</label> <select
 					name="start_time_hour" type="number"></select> :<select
@@ -115,6 +106,14 @@
 			<div>
 				<input name="duration" type="number" placeholder="Duration (in hrs)"
 					class="required">
+			</div>
+			<div>
+				<label>Legal</label><select
+					name="legal" type="text"
+					placeholder="Legal">
+					<option value='N'>No</option>
+					<option value='Y' selected>Yes</option>
+				</select>
 			</div>
 			<div>
 				<label class="required">Language</label><select name="lang"
@@ -135,7 +134,7 @@
 				<input name="contact_three" type="text" placeholder="Onsite Contact 2">
 			</div>
 			<div>
-				<label>Gender</label> <select name="inter_gender" type="text">
+				<label>Gender</label><select name="inter_gender" type="text">
 					<option value='N'>Male</option>
 					<option value='Y' selected>Female</option>
 				</select>
@@ -144,7 +143,11 @@
 				<input name="rate" type="number" placeholder="Rate">
 			</div>
 			<div>
-				<input name="adress" type="text" placeholder="Location">
+				<input name="location" type="text" placeholder="Location">
+			</div>
+			<div>
+				<label>Confirmed To Client(Follow Up Call)</label>
+				<select name="called"><option value="N" selected="selected">No</option><option value="Y">Yes</option></select>
 			</div>
 			<div>
 				<textarea name="location_notes" placeholder="Location Notes"></textarea>
@@ -153,16 +156,16 @@
 				<textarea name="request_notes" placeholder="Request Notes"></textarea>
 			</div>
 			<div>
-				<input id="cancel" type="button" value="CANCEL" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 				<input type="submit" value="SUBMIT" class="request">
 			</div>
 		</form>
 
 		<form id="order" class="modalBox clearfix">
 			<h2><i class="fa fa-cart-plus"></i>Create Order</h2>
-			<div>
+			<div class="ui-front">
 				<input name="client_name" type="text" placeholder="Client Name"
-					class="required">
+					class="required c">
 			</div>
 			<div>
 				<label class="required">Date Due</label><input name="due_date"
@@ -191,7 +194,7 @@
 				<input name="cust_email" type="text" placeholder="Email">
 			</div>
 			<div>
-				<label class="required">Language </label><select name="lang"
+				<label class="required">Language</label><select name="lang"
 					type="text" placeholder="Language" class="required"></select>
 			</div>
 			<div>
@@ -213,19 +216,19 @@
 
 
 			<div>
-				<input type="submit" value="SUBMIT" class="request"> <input
-					id="cancel" type="button" value="CANCEL" class="request">
+				<input type="submit" value="SUBMIT" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 			</div>
 		</form>
 
 		<form id="client" class="modalBox clearfix">
 			<h2><i class="fa fa-bank"></i>Create New Client</h2>
-			<div>
+			<div class="ui-front">
 				<input name="name" type="text" placeholder="Client Name"
-					class="required">
+					class="required c">
 			</div>
 			<div>
-				<input name="contact_name" type="text" placeholder="Contact Name"
+				<input name="contact" type="text" placeholder="Contact Name"
 					class="required">
 			</div>
 			<div>
@@ -261,7 +264,7 @@
 			</div>
 
 			<div>
-				<input id="cancel" type="button" value="CANCEL" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 				<input type="submit" value="SUBMIT" class="request">
 			</div>
 		</form>
@@ -298,28 +301,38 @@
 					class="required">
 			</div>
 			<div>
+				<label>Appointment Type</label>
+				<select name="app_type" type="text">
+					<option value='Med' selected>Medical</option>
+					<option value='Cpmm'>Community</option>
+					<option value='Leg'>Legal</option>
+					<option value='Co'>Court</option>
+					<option value='Conf'>Conference</option>
+				</select>
+			</div>
+			<div>
 				<label class="required" style="display:block">Primary Language </label>
 				<select style="display:inline-block" name="prim_lang" type="text" placeholder="Primary Language" class="required"></select>
-				<input style="display:inline-block;width: 25%" name="hourly_rate" type="number" placeholder="Hourly Rate"
+				<input style="display:inline-block;width: 25%" name="hourly_rate" type="number" placeholder="Rate"
 					class="required">
 			</div>
 			<div>
 				<label style="display:block">Secondary Language </label><select style="display:inline-block" 
 					name="secnd_lang" type="text" placeholder="Secondary Language"
 					></select>
-				<input style="display:inline-block;width: 25%" name="rate2" type="number" placeholder="Hourly Rate">
+				<input style="display:inline-block;width: 25%" name="rate2" type="number" placeholder="Rate">
 			</div>
 			<div>
 				<label style="display:block">Third Language </label><select style="display:inline-block" 
 					name="third_lang" type="text" placeholder="Third Language"
 				    ></select>
-				<input style="display:inline-block;width: 25%" name="rate3" type="number" placeholder="Hourly Rate">
+				<input style="display:inline-block;width: 25%" name="rate3" type="number" placeholder="Rate">
 			</div>
 			<div>
 				<label style="display:block">Fourth Language </label><select style="display:inline-block" 
 					name="fourth_lang" type="text" placeholder="Fourth Language"
 				    ></select>
-				<input style="display:inline-block;width: 25%" name="rate4" type="number" placeholder="Hourly Rate">
+				<input style="display:inline-block;width: 25%" name="rate4" type="number" placeholder="Rate">
 			</div>
 			<div>
 				<label>Native Country </label><select id="country"
@@ -366,13 +379,20 @@
 			</div>
 
 			<div>
-				<input id="cancel" type="button" value="CANCEL" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 				<input type="submit" value="SUBMIT" class="request">
 			</div>
 		</form>
+
+		<!--edit form-->
+		<form class="editBox clearfix">
+			<h2><i class="fa fa-edit"></i>Edit</h2>
+			<p></p> <!--this p tag serves as a container for edit form replacement-->
+		</form>
+
 	</div>
   </div>
-	<!--end modal-->
+	<!--end modal-holder-->
 
 	<div class="header">
 		<div class="inner-fluid clearfix">
@@ -540,6 +560,8 @@
 							<th class=""></th>
 						</tr>
 					</thead>
+					<tbody>
+					</tbody>
 					<tfoot>
 						<tr>
 							<th class="iD">ID</th>
@@ -555,8 +577,6 @@
 							<th class=""></th>
 						</tr>
 					</tfoot>
-					<tbody>
-					</tbody>
 				</table>
 			</div>
 			<!--//End of Tab 4-->
@@ -588,156 +608,4 @@
 									}
 								});
 			});
-	//Modal script
-		/*//close modal when done
-		$('.close,#cancel').click(function(){
-			$('.modal-holder,.modalBox').hide();
-		});
-		//show correct form on click
-		$('.admin-controls .option').click(function(){
-			var box = "#" + this.className.split(" ")[0];
-			$('.modal-holder, ' + box).show();
-		});
-		//display calendar
-		var toggle = 0;
-		$('.cal-close').click(function(){
-			if(toggle == 0){
-				$('.inner.calendar').css('top',0);
-				toggle = 1;
-			}else if(toggle == 1){
-				$('.inner.calendar').css('top',-400);
-				toggle = 0;
-			}
-		});
-
-		function stick(){
-			var win = $(window).scrollTop();
-			var h = $('.header').height();
-			if(win > h) $('.admin-controls').css({'position':'fixed','top':0});
-			else $('.admin-controls').css({'position':'absolute','top':0});
-		}
-		$(window).scroll(stick);*/
-
-		$('#calendar')
-									.fullCalendar(
-											{
-												minTime:"06:00:00",
-												maxTime:"21:00:00",
-												height: 300,
-												//events : eventSrc,
-												defaultView : "agendaWeek",
-												header : {
-													left : 'month,agendaWeek,agendaDay',
-													center : 'title',
-													right : 'today,prev,next'
-												},
-												eventAfterAllRender : function() {
-													document
-															.querySelector('#calendar h2').innerText = document
-															.querySelector('#calendar h2').innerText
-															.replace("â€”", "-");
-												},
-												eventRender : function(event,
-														element) {
-													element
-															.find('.fc-title')
-															.prepend("Client: ");
-													element
-															.find('.fc-title')
-															.append(
-																	"<br/>"
-																			+ "Assignee: "
-																			+ event.assigned_to
-																			+ "<br/>"
-																			+ "Language: "
-																			+ event.lang);
-													element
-															.qtip({ // Grab all
-																// elements
-																// with a
-																// non-blank
-																// data-tooltip
-																// attr.
-																title : {
-																	text : 'About Me',
-																},
-																position : {
-																	target : 'mouse', // Position
-																	// it
-																	// where
-																	// the
-																	// click
-																	// was...
-																	adjust : {
-																		mouse : false
-																	}
-																// ...but don't
-																// follow the
-																// mouse
-																},
-																style : {
-																	classes : 'qtip-light qtip-bootstrap',
-																	def : false,
-																},
-																content : {
-																	text : '<div class="">'
-																			+ '<div class="item"><span class="name">ID:</span><span class="value">'
-																			+ event.id
-																			+ '</span></div>'
-																			+'<div class="item"><span class="name">Assigned To: </span><span class="value">' +event.assigned_to+'</span></div>' 
-																			+ '<div class="item"><span class="name">Onsite Contact: </span><span class="value">'
-																			+ event.title
-																			+ '</span></div>'
-																			+ '<div class="item"><span class="name">Follow Up Call: </span>'
-																			+ event.called
-																			+ '</div>'
-																			+ '<div class="item"><span class="name">Onsite Number: </span><span class="value">'
-																			+ event.onsite_phone
-																			+ '</span></div>'
-																			+ '<div class="item"><span class="name">Contact 2: </span><span class="value">'
-																			+ event.contact_two
-																			+ '</span></div>'
-																			+ '<div class="item"><span class="name">Request Date/Time: </span><span class="value">'
-																			+ event.timestamp
-																			+ '</span></div>'
-																			+ '<div class="item"><span class="name">Location: </span><span class="value">'
-																			+ event.adress
-																			+ '</span></div>'
-																			+ '<div class="item"><span class="name">Location Notes: </span><span class="value">'
-																			+ event.location_notes
-																			+ '</span></div>'
-																			+ '<div class="item"><span class="name">Request Notes: </span><span class="value">'
-																			+ event.request_notes
-																			+ '</span></div>'
-																			+ '</div>',
-																	title : 'Request Details',
-																	button : 'Close'
-
-																},
-																events : {
-																	shown : function(
-																			event,
-																			api) {
-																	}
-																},
-																hide : {
-																	event : false
-																}
-															})// End of q-tip
-													// function-->
-												}
-											});
-							function custom_sort(a, b) {
-								return new Date(a.start).getTime()
-										- new Date(b.start).getTime();
-							}
-
-							//eventSrc.sort(custom_sort);
-
-							/*$('#calendar').fullCalendar('gotoDate',
-									eventSrc[0].start);*/
-						//});
-		
-					//});
-</script>
 </html>
