@@ -63,18 +63,18 @@
 
         //display contents of current table row in edit form
         var formOutput = "<div><input name='inter_request_id' hidden='true' value='"+tr.client_id+"'></div>"
-        formOutput += "<div class='ui-front'><label>Client Name<label><input name='name' type='text' placeholder='"+tr.name+"'></div>";
+        formOutput += "<div class='ui-front'><label>Client Name<label><input name='name' type='text' value='"+tr.name+"'></div>";
         formOutput += "<div><label>Contact<label><input name='contact' value='"+tr.contact+"'></div>";
-        formOutput += "<div><label>Marketer<label><input name='marketer' placeholder='"+tr.marketer+"'></div>";
-        formOutput += "<div><label>Address<label><input name='adress' placeholder='"+tr.adress+"'></div>";
-        formOutput += "<div><label>Zipcode<label><input name='zipcode' placeholder='"+tr.zipcode+"'></div>";
-        formOutput += "<div><label>Email<label><input name='email' placeholder='"+tr.email+"'></div>";
-        formOutput += "<div><label>Phone Number<label><input name='phone_num' placeholder='"+tr.phone_num+"'></div>";
-        formOutput += "<div><label>Cell Number<label><input name='cell_num' placeholder='"+tr.cell_num+"'></div>";
-        formOutput += "<div><label>Alternate Number<label><input name='other_num' placeholder='"+tr.other_num+"'></div>";
-        formOutput += "<div><label>Fax<label><input name='fax_num' placeholder='"+tr.fax_num+"'></div>";
-        formOutput += "<div><label>Website URL<label><input name='website' placeholder='"+tr.website+"'></div>";
-        formOutput += "<div><label>Notes<label><textarea name='notes' placeholder='"+tr.notes+"'></textarea></div>";
+        formOutput += "<div><label>Marketer<label><input name='marketer' value='"+tr.marketer+"'></div>";
+        formOutput += "<div><label>Address<label><input name='adress' value='"+tr.adress+"'></div>";
+        formOutput += "<div><label>Zipcode<label><input name='zipcode' value='"+tr.zipcode+"'></div>";
+        formOutput += "<div><label>Email<label><input name='email' value='"+tr.email+"'></div>";
+        formOutput += "<div><label>Phone Number<label><input name='phone_num' value='"+tr.phone_num+"'></div>";
+        formOutput += "<div><label>Cell Number<label><input name='cell_num' value='"+tr.cell_num+"'></div>";
+        formOutput += "<div><label>Alternate Number<label><input name='other_num' value='"+tr.other_num+"'></div>";
+        formOutput += "<div><label>Fax<label><input name='fax_num' value='"+tr.fax_num+"'></div>";
+        formOutput += "<div><label>Website URL<label><input name='website' value='"+tr.website+"'></div>";
+        formOutput += "<div><label>Notes<label><textarea name='notes' value='"+tr.notes+"'></textarea></div>";
         
 
         formOutput += "<div><input type='button' value='CANCEL' class='request cancel'><input type='submit' value='SUBMIT' class='request'></div>";
