@@ -19,7 +19,7 @@
             var tbC = "intr";
             printrows(row1,tbC);
 
-            $('.intr tbody td:not(.table-actions):not(.aSS)').click(function(){
+            $('.intr tbody td:not(.table-actions)').click(function(){
         var thistr = $(this);
         var tbr = thistr.parent();
         if (!tbr.hasClass('active'))
