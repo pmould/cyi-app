@@ -26,7 +26,7 @@ function printrows(records, tableClass){
       strout += '<td class="'+arr[i]+'">'+v_+'</td>';
       i++;
     });
-    strout += '<td class="table-actions"><span class="action edit">Edit</span></td><td class="table-actions"><span class="action save">Save</span></td>';  //Edit and save buttons for each row  
+    strout += '<td class="table-actions"><span class="action edit">Edit</span></td>';  //Edit button for each row  
     strout += "</tr>";
     //  console.log(tableClass+": " +strout);
     $('.'+tableClass+' tbody').append(strout);
