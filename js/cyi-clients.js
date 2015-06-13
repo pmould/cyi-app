@@ -21,32 +21,39 @@
 
             var tbC = "clients"; 
             printrows(row1,tbC);
-            $('.clients tbody tr').click(function(e){
-                var thistr = $(this);         
-                if (!$(this).hasClass('active'))
-                {
-                    $(this).addClass('active');
-                    var id  = $(this).attr("id").replace('post-','');
-                    var strout = "";
-                    strout +="<tr class='trdrp'><td colspan='7'>";
-                    strout +="<div class='dropdown'>";
-                    strout +="<fieldset>";
-                    strout +="<label><span>Address </span><span class='cell'>"+row2[id].adress+"</span></label>";
-                    strout +="<label><span>Zipcode </span><span class='phone'>"+row2[id].zipcode+"</span></label>";
-                    strout +="<label><span>Other Number</span><span class='phone'>"+row2[id].other_num+"</span></label>";
-                    strout +="<label><span>Contact Name</span><span class='eM'>"+row2[id].contact+"</span></label>";
-                    strout +="</fieldset>"
-                        strout +="<fieldset>";
-                    strout +="<label><span>Email</span><span class='eM'>"+row2[id].email+"</span></label>";
-                    strout +="<label><span>Marketer</span><span class='eM'>"+row2[id].marketer+"</span></label>";
-                    strout +="<label><span>Website </span><span class='add'>"+row2[id].website+"</span></label>";
-                    strout +="<label><span>Notes</span><span class='email'>"+row2[id].notes+"</span></label>"; 
-                    strout +="<fieldset>";
-                    strout +="</div></td></tr>";
-                    $(this).showRow(strout);
-                }
-                else $(this).hideRow();
-            });
+            $('.clients tbody td:not(.table-actions):not(.aSS)').click(function(){
+        var thistr = $(this);
+        var tbr = thistr.parent();
+        if (!tbr.hasClass('active'))
+        {
+        tbr.addClass('active');
+        var id  = tbr.attr("id").replace('post-','');
+        var strout = "";
+        strout +="<tr class='trdrp'><td colspan='12'>";
+        strout +="<div class='dropdown'>";
+        strout +="<fieldset>";
+        strout +="<label><span>LEP Name</span><span class='name'>"+row2[id].lep_name+"</span></label>";
+        strout +="<label><span>Onsite Number</span><span class='add'>"+row2[id].onsite_phone+"</span></label>";        
+        strout +="<label><span>Contact 2</span><span class='cell'>"+row2[id].contact_two+"</span></label>";
+        strout +="<label><span>Request Date/Time </span><span class='cell'>"+row2[id].timestamp+"</span></label>";
+        strout +="</fieldset>";
+
+        strout +="<fieldset>";
+        strout +="<label><span>Rate</span><span class='rate'>"+row2[id].rate+"</span></label>";
+        strout +="<label><span>Location</span><span class='cell'>"+row2[id].location+"</span></label>";
+        strout +="<label><span>Location Notes</span><span class='phone'>"+row2[id].location_notes+"</span></label>";
+        strout +="<label><span>Request Notes</span><span class='phone'>"+row2[id].request_notes+"</span></label>";
+        strout +="</fieldset>";
+
+        strout +="<fieldset>";
+        strout +="<label><span>Legal</span><span class='rate'>"+row2[id].legal+"</span></label>";
+        strout +="</fieldset>";
+
+        strout +="</div></td></tr>";
+        tbr.showRow(strout);
+        }
+        else tbr.hideRow();
+     });
         $('.clients tbody .table-actions .edit').click(function(){
         
         var children = $(this).parent().parent().children(); //return array of child elements of table row
