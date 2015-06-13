@@ -19,45 +19,39 @@
             var tbC = "intr";
             printrows(row1,tbC);
 
-            $('.intr tbody tr').click(function(e){
-                var thistr = $(this);
-                if (!$(this).hasClass('active'))
-                {
-                    $(this).addClass('active');
+            $('.intr tbody td:not(.table-actions):not(.aSS)').click(function(){
+        var thistr = $(this);
+        var tbr = thistr.parent();
+        if (!tbr.hasClass('active'))
+        {
+        tbr.addClass('active');
+        var id  = tbr.attr("id").replace('post-','');
+        var strout = "";
+        strout +="<tr class='trdrp'><td colspan='12'>";
+        strout +="<div class='dropdown'>";
+        strout +="<fieldset>";
+        strout +="<label><span>LEP Name</span><span class='name'>"+row2[id].lep_name+"</span></label>";
+        strout +="<label><span>Onsite Number</span><span class='add'>"+row2[id].onsite_phone+"</span></label>";        
+        strout +="<label><span>Contact 2</span><span class='cell'>"+row2[id].contact_two+"</span></label>";
+        strout +="<label><span>Request Date/Time </span><span class='cell'>"+row2[id].timestamp+"</span></label>";
+        strout +="</fieldset>";
 
-                    var id  = $(this).getId();
-                    var strout = "";
-                    strout +="<tr class='trdrp'><td colspan='12'>";
-                    strout +="<div class='dropdown'>";
+        strout +="<fieldset>";
+        strout +="<label><span>Rate</span><span class='rate'>"+row2[id].rate+"</span></label>";
+        strout +="<label><span>Location</span><span class='cell'>"+row2[id].location+"</span></label>";
+        strout +="<label><span>Location Notes</span><span class='phone'>"+row2[id].location_notes+"</span></label>";
+        strout +="<label><span>Request Notes</span><span class='phone'>"+row2[id].request_notes+"</span></label>";
+        strout +="</fieldset>";
 
-                    strout +="<fieldset>";
-                    strout +="<label><span>Address </span><span class='add'>"+row2[id].adress+"</span></label>";
-                    strout +="<label><span>Phone: </span><span class='phone'>"+row2[id].phone+"</span></label>";
-                    strout +="<label><span>Cell </span><span class='cell'>"+row2[id].cell+"</span></label>";
-                    strout +="<label><span>Email </span><span class='email'>"+row2[id].email+"</span></label>"; 
-                    strout +="<label><span>Zipcode </span><span class='zc'>"+row2[id].zipcode+"</span></label>";
-                    strout +="<label><span>Fax </span><span class='fax'>"+row2[id].fax+"</span></label>";
-                    strout +="</fieldset>";
+        strout +="<fieldset>";
+        strout +="<label><span>Legal</span><span class='rate'>"+row2[id].legal+"</span></label>";
+        strout +="</fieldset>";
 
-                    strout +="<fieldset>";
-                    strout +="<label><span>Lang 1 Rate:</span><span class='hr'>"+row2[id].hourly_rate+"</span></label>"; 
-                    strout +="<label><span>Lang 2 Rate:</span><span class='rate2'>"+row2[id].rate2+"</span></label>";
-                    strout +="<label><span>Lang 3 Rate:</span><span class='rate3'>"+row2[id].rate3+"</span></label>"; 
-                    strout +="<label><span>Lang 4 Rate:</span><span class='rate4'>"+row2[id].rate4+"</span></label>"; 
-                    strout +="</fieldset>";
-
-                    strout +="<fieldset>";
-                    strout +="<label><span>Miles Rate:</span><span class='miles'>"+row2[id].miles_rate+"</span></label>"; 
-                    strout +="<label><span>Work Authorization</span><span class='add'>"+row2[id].work_auth_vrfd+"</span></label>";
-                    strout +="<label><span>Native Country: </span><span class='country'>"+row2[id].country+"</span></label>";
-                    strout +="</fieldset>";
-                    strout +="</div></td></tr>";
-                    $(this).showRow(strout);        }
-                else
-                {
-                    $(this).hideRow();
-                }
-            });
+        strout +="</div></td></tr>";
+        tbr.showRow(strout);
+        }
+        else tbr.hideRow();
+     });
 
         $('.intr tbody .table-actions .edit').click(function(){
         
