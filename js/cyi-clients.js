@@ -21,7 +21,7 @@
 
             var tbC = "clients"; 
             printrows(row1,tbC);
-            $('.clients tbody td:not(.table-actions):not(.aSS)').click(function(){
+            $('.clients tbody td:not(.table-actions)').click(function(){
         var thistr = $(this);
         var tbr = thistr.parent();
         if (!tbr.hasClass('active'))
