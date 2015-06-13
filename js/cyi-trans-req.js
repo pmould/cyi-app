@@ -18,7 +18,7 @@ $.getJSON("http://localhost:8080/int_sms/webapi/translation/getdetails", functio
             undf(row2);
             var tbC = "transreq"; 
             printrows(row1,tbC);
-            $('.transreq tbody td:not(.table-actions):not(.aSS)').click(function(){
+            $('.transreq tbody td:not(.table-actions)').click(function(){
         var thistr = $(this);
         var tbr = thistr.parent();
         if (!tbr.hasClass('active'))
