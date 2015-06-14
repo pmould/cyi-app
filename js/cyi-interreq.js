@@ -23,7 +23,7 @@
           async:false,
           url:url,
            success: function(intrlistlang){
-        var intrlistlang = JSON.stringify(intrlistlang);
+        //var intrlistlang = JSON.stringify(intrlistlang);
         intrlistlang = escape(intrlistlang);
         var data2 = $.parseJSON(intrlistlang); 
          
@@ -34,7 +34,7 @@
         ass_select+="</select>";
         console.log("Inside Select Tag "+i+": \n"+ass_select);
      
-       }});   */           //this function...
+       }});*/              //this function...
         console.log("Outside Select Tag "+i+": \n"+ass_select);
         row1[v.inter_request_id] ={inter_request_id:v.inter_request_id,assign:ass_select,client:v.client,app_date:v.app_date, start_time:v.start_time,duration:v.duration,lang:v.lang,assigned_to:v.assigned_to, client_name:v.contact_one,called:v.called};
         row2[v.inter_request_id] ={timestamp:v.timestamp, lep_name:v.lep_name,onsite_phone:v.onsite_phone,contact_two:v.contact_two,inter_gender:v.inter_gender,location:v.location, location_notes:v.location_notes,request_notes:v.request_notes,rate:v.rate, location:v.location, legal:v.legal};
@@ -75,7 +75,7 @@
 
                         jAlert('Failed to load resource: \n'+'Status: '+textStatus+'\nerrorThrown: '+ errorThrown);
                 }
-            });*/        //...and this funtion
+            }); */         //...and this funtion
 
           }
 
@@ -145,14 +145,13 @@
         formOutput += "<div><label>Start Time<label><input name='start_time_hour' style='width: 11%;display:inline' value='"+tr.start_time.substring(0,2)+"'> :<input name='start_time_min' style='width: 11%;display:inline' value='"+tr.start_time.substring(3,5)+"'></div>";
         formOutput += "<div><label>Duration<label><input name='duration' type='number' value='"+tr.duration+"'></div>";
         formOutput += "<div><label>Language<label><input name='lang' type='text' value='"+tr.lang+"'></div>";
-        formOutput += "<div><label>Assigned To<label><input name='assigned_to' value='"+tr.assigned_to+"'></div>";
         formOutput += "<div><label>Gender(M/F)<label><input name='inter_gender' value='"+tr.inter_gender+"'></div>";
         formOutput += "<div><label>Rate<label><input name='rate' value='"+tr.rate+"'></div>";
         formOutput += "<div><label>Legal<label><input name='legal' value='"+tr.legal+"'></div>";
         formOutput += "<div><label>Onsite Contact Name<label><input name='contact_one' value='"+tr.client_name+"'></div>";
+        formOutput += "<div><label>Onsite Phone<label><input name='onsite_phone' value='"+tr.onsite_phone+"'></div>";
         formOutput += "<div><label>Called(Y/N)<label><input name='called' value='"+tr.called+"'></div>";
         formOutput += "<div><label>LEP Name<label><input name='lep_name' value='"+tr.lep_name+"'></div>";
-        //formOutput += "<div><label>Onsite Phone<label><input name='onsite_phone' value='"+tr.onsite_phone+"'></div>";
         formOutput += "<div><label>Onsite Contact 2<label><input name='contact_three' value='"+tr.contact_three+"'></div>";
         formOutput += "<div><label>Onsite Number<label><input name='contact_two' value='"+tr.contact_two+"'></div>";
         formOutput += "<div><label>Location<label><input name='location' value='"+tr.location+"'></div>";
@@ -172,6 +171,6 @@
     });
 
  });
-});  //comment out this too
+//});  //comment out this too
 
 })(jQuery);
