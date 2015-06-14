@@ -1,11 +1,11 @@
 (function($){
      $(function(){
-        $.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/clients", function(response){
+       // $.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/clients", function(response){
        
 
-            //response ='[{"client_id":1,"adress":"689 Mableton Pkwy","marketer":"Donnie Regan","website":"www.masmenidas.com","phone_num":"0","cell_num":"678500412","fax_num":"0","other_num":"0","email":"dine@live.fr","lang_list_id":0,"notes":"","zipcode":30309,"name":"Dromadaire Silicon"},{"client_id":958,"adress":"Brookwood Peachtree Medical Office\n1745 Peachtree ","marketer":"Sylvie Ndiaye","website":"","phone_num":"404","cell_num":"404","fax_num":"0","other_num":"0","email":"kaiser@yahoo.com","lang_list_id":0,"notes":"bananna apple orange","zipcode":30309,"name":"Kaiser Permanente"},{"client_id":959,"adress":"200 Peachtree Industrial Bldvd","marketer":"Nicolas LeBeurre","website":"wwww.sharkauto.com","phone_num":"8004567812","cell_num":"","fax_num":"","other_num":"","email":"manager@shark.com","lang_list_id":0,"notes":"mickey and donald","zipcode":30340,"name":"Shark Auto,LLC"}]';
+            response ='[{"client_id":1,"adress":"689 Mableton Pkwy","marketer":"Donnie Regan","website":"www.masmenidas.com","phone_num":"0","cell_num":"678500412","fax_num":"0","other_num":"0","email":"dine@live.fr","lang_list_id":0,"notes":"","zipcode":30309,"name":"Dromadaire Silicon"},{"client_id":958,"adress":"Brookwood Peachtree Medical Office\n1745 Peachtree ","marketer":"Sylvie Ndiaye","website":"","phone_num":"404","cell_num":"404","fax_num":"0","other_num":"0","email":"kaiser@yahoo.com","lang_list_id":0,"notes":"bananna apple orange","zipcode":30309,"name":"Kaiser Permanente"},{"client_id":959,"adress":"200 Peachtree Industrial Bldvd","marketer":"Nicolas LeBeurre","website":"wwww.sharkauto.com","phone_num":"8004567812","cell_num":"","fax_num":"","other_num":"","email":"manager@shark.com","lang_list_id":0,"notes":"mickey and donald","zipcode":30340,"name":"Shark Auto,LLC"}]';
 
-            response= JSON.stringify(response);
+            //response= JSON.stringify(response);
             response= escape(response);
 
             var data = $.parseJSON(response);
@@ -90,7 +90,7 @@
     });
 
         
-        }); //getJSON
+       // }); //getJSON
     });
 
 })(jQuery);
