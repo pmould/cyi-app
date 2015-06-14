@@ -3,11 +3,11 @@
                 request: 'http://cyinterpreting.elasticbeanstalk.com/webapi/interpreting',
                 assign: 'http://cyinterpreting.elasticbeanstalk.com/webapi/interpreters?lang='   
             }; 
-$.getJSON(endpts.request, function(response){       //comment here...
+//$.getJSON(endpts.request, function(response){       //comment here...
  $(function(){
-    //response = '[{ "legal" : "Y", "inter_request_id" : 1, "timestamp" : "2015-04-24 02:21:42", "client" : "Shark Auto,LLC", "app_date" : "2015-03-15",  "start_time" : "15:30:00.0",  "duration" : 2, "lang" : "French", "lep_name" : "Romaric Sall", "lep_phone" : "2147483647", "contact_one" : "Mitch Arnold",   "contact_two" : "", "contact_three" : "",  "inter_gender" : "M", "client_name" : "Ron Stewart", "location_id" : 3, "location_notes" : "far away", "request_notes" : "please be polite", "called" : "N", "rate" : 25.00},{ "legal" : "Y", "inter_request_id" : 2, "timestamp" : "2015-04-24 02:28:54", "client" : "Dromadaire Silicon", "app_date" : "2015-04-11",  "start_time" : "08:16:00.0",    "duration" : 4, "lang" : "Chinese", "lep_name" : "SaoKung Lee", "lep_phone" : "6788000000", "contact_one" : "Dr. Roosevelt", "contact_two" : "", "contact_three" : "", "inter_gender" : "F", "client_name" : "Nicholas Brett", "location_id" : 3, "location_notes" : "close to the mall", "request_notes" : "please be clean", "called" : "N", "rate" : 35.00}]';
+    response = '[{ "legal" : "Y", "inter_request_id" : 1, "timestamp" : "2015-04-24 02:21:42", "client" : "Shark Auto,LLC", "app_date" : "2015-03-15",  "start_time" : "15:30:00.0",  "duration" : 2, "lang" : "French", "lep_name" : "Romaric Sall", "lep_phone" : "2147483647", "contact_one" : "Mitch Arnold",   "contact_two" : "", "contact_three" : "",  "inter_gender" : "M", "client_name" : "Ron Stewart", "location_id" : 3, "location_notes" : "far away", "request_notes" : "please be polite", "called" : "N", "rate" : 25.00},{ "legal" : "Y", "inter_request_id" : 2, "timestamp" : "2015-04-24 02:28:54", "client" : "Dromadaire Silicon", "app_date" : "2015-04-11",  "start_time" : "08:16:00.0",    "duration" : 4, "lang" : "Chinese", "lep_name" : "SaoKung Lee", "lep_phone" : "6788000000", "contact_one" : "Dr. Roosevelt", "contact_two" : "", "contact_three" : "", "inter_gender" : "F", "client_name" : "Nicholas Brett", "location_id" : 3, "location_notes" : "close to the mall", "request_notes" : "please be clean", "called" : "N", "rate" : 35.00}]';
 
-   response= JSON.stringify(response);        //here...
+   //response= JSON.stringify(response);        //here...
     response= escape(response);
     var data = $.parseJSON(response);
     var row1 = {};
@@ -16,14 +16,14 @@ $.getJSON(endpts.request, function(response){       //comment here...
 
     $.each(data, function(i, v){
 
-        //var intrlistlang = '[{"interpreter_id": 1, "full_name": "Paul Mould"},{"interpreter_id": 2, "full_name": "Yaw Asare"},{"interpreter_id": 3, "full_name": "Fon Akenji"},{"interpreter_id": 4, "full_name": "Sam Johnson"}]';
+        var intrlistlang = '[{"interpreter_id": 1, "full_name": "Paul Mould"},{"interpreter_id": 2, "full_name": "Yaw Asare"},{"interpreter_id": 3, "full_name": "Fon Akenji"},{"interpreter_id": 4, "full_name": "Sam Johnson"}]';
         var url =endpts.assign;
         url += v.lang;
-        $.ajax({
+        /*$.ajax({
           async:false,
           url:url,
            success: function(intrlistlang){
-        var intrlistlang = JSON.stringify(intrlistlang);
+        var intrlistlang = JSON.stringify(intrlistlang);*/
         intrlistlang = escape(intrlistlang);
         var data2 = $.parseJSON(intrlistlang); 
          
@@ -61,7 +61,7 @@ $.getJSON(endpts.request, function(response){       //comment here...
             jsonData = JSON.stringify(jsonData);
                console.log("name: "+jsonData.request_id+", id:"+jsonData.interpreter_id);
                console.log(jsonData);
-            $.ajax({
+            /*$.ajax({
                 url:endpts.request,
                 type:"put",
                 dataType: "jsonp",
@@ -75,7 +75,7 @@ $.getJSON(endpts.request, function(response){       //comment here...
 
                         jAlert('Failed to load resource: \n'+'Status: '+textStatus+'\nerrorThrown: '+ errorThrown);
                 }
-            });        //...and this funtion
+            });*/        //...and this funtion
 
           }
 
