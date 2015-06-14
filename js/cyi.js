@@ -1,8 +1,8 @@
 (function($){
-    $.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/interpreters", function(response){
+    //$.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/interpreters", function(response){
         $(function(){
 
-            //response ='[{"interpreter_id":8,"last_name":"Garcia","first_name":"Jose","adress":"2300 Walnut Grove Way\nSuwannee, ga","zipcode":30024,"phone":"2147483647","cell":"2147483647","email":"Jose.m.garcia@live.com","prim_lang":"Spanish","secnd_lang":"Italian","avail":"Y"},{"interpreter_id":2,"last_name":"Roland","first_name":"Pierce","adress":"3400 Wayne Lee Way\nAustell, ga","zipcode":30106,"phone":"4046780000","cell":"4046780001","email":"rpPdej@live.com","prim_lang":"Finish","secnd_lang":"Italian","avail":"Y"},{"interpreter_id":3,"last_name":"Dowel","first_name":"Mawuks","adress":"600 Comeland Wayne Ct\nDecatur GA","zipcode":30884,"phone":"404125000","cell":"404684201","email":"dowmaw@gmail.com","prim_lang":"German","secnd_lang":"Italian","avail":"Y"},{"interpreter_id":4,"last_name":"Cerio","first_name":"Matolini","adress":"400 Cobb Galeria Pkwy\nSmyrna GA","zipcode":30339,"phone":"4045484000","cell":"770688601","email":"c_mat@gmail.com","prim_lang":"German","secnd_lang":"Italian","avail":"N"}]';
+            response ='[{"interpreter_id":8,"last_name":"Garcia","first_name":"Jose","adress":"2300 Walnut Grove Way\nSuwannee, ga","zipcode":30024,"phone":"2147483647","cell":"2147483647","email":"Jose.m.garcia@live.com","prim_lang":"Spanish","secnd_lang":"Italian","avail":"Y"},{"interpreter_id":2,"last_name":"Roland","first_name":"Pierce","adress":"3400 Wayne Lee Way\nAustell, ga","zipcode":30106,"phone":"4046780000","cell":"4046780001","email":"rpPdej@live.com","prim_lang":"Finish","secnd_lang":"Italian","avail":"Y"},{"interpreter_id":3,"last_name":"Dowel","first_name":"Mawuks","adress":"600 Comeland Wayne Ct\nDecatur GA","zipcode":30884,"phone":"404125000","cell":"404684201","email":"dowmaw@gmail.com","prim_lang":"German","secnd_lang":"Italian","avail":"Y"},{"interpreter_id":4,"last_name":"Cerio","first_name":"Matolini","adress":"400 Cobb Galeria Pkwy\nSmyrna GA","zipcode":30339,"phone":"4045484000","cell":"770688601","email":"c_mat@gmail.com","prim_lang":"German","secnd_lang":"Italian","avail":"N"}]';
 
             response= JSON.stringify(response);
             response= escape(response);
@@ -14,8 +14,8 @@
                 row1[v.interpreter_id] ={interpreter_id:v.interpreter_id, first_name:v.first_name,last_name:v.last_name,prim_lang:v.prim_lang,secnd_lang:v.secnd_lang,third_lang:v.third_lang,fourth_lang:v.fourth_lang, avail:v.avail,cert_one:v.cert_one};
                 row2[v.interpreter_id] ={adress:v.adress,zipcode:v.zipcode,hourly_rate:v.hourly_rate,rate2:v.rate2, rate3:v.rate3, rate4:v.rate4, miles_rate:v.miles_rate,cell:v.cell,phone:v.phone,email:v.email,fax:v.fax,country:v.country,work_auth_vrfd:v.work_auth_vrfd};
             });  
-            //undf(row2);  
-            //undf(row1); 
+            undf(row2);  
+            undf(row1); 
             var tbC = "intr";
             printrows(row1,tbC);
 
@@ -109,5 +109,5 @@
 
 
         });
-    });
+    //});
 })(jQuery);
