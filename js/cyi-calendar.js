@@ -9,19 +9,17 @@
 		//$("a[href='#tabs-5']").click(function(e){
 		$.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/interpreting",
 						function(response) {
-			            	/*response = '[{ "inter_request_id" : 1, "timestamp" : "2015-04-24 02:21:42","app_date" : "2015-03-15",'+
-			                '"start_time" : "15:30:00.0","duration" : 2, "lang" : "French",  "lep_name" : "Romaric Sall",'+
+			            	response = '[{ "inter_request_id" : 1, "timestamp" : "2015-06-14 02:21:42","app_date" : "2015-06-15","start_time" : "15:30:00.0","duration" : 2, "lang" : "French",  "lep_name" : "Romaric Sall",'+
 			                '"contact_one" : "Mitch Arnold", "assigned_to":"Fon Akenji", '+
 			                ' "contact_two" : "Phil Cameron", "contact_three" : "",   "inter_gender" : "M",   "client_name" : "Ron Stewart",'+  
 			                '"location_id" : 3,  "location_notes" : "far away",  "request_notes" : "please be polite", "onsite_phone":"770-596-1305",'+
 			                '"called" : "N", "rate" : 25.00,"location" : "5444 Barwyn Dr Rex"},'+
 			                '{"location" : "5444 Barwyn Dr Rex",  "onsite_phone":"770-596-1305", "inter_request_id" : 2, '+
-			                '"timestamp" : "2015-04-24 02:28:54",    "app_date" : "2015-03-21",'+' "start_time" : "08:16:00.0",'+
+			                '"timestamp" : "2015-05-24 02:28:54",    "app_date" : "2015-06-20",'+' "start_time" : "08:16:00.0",'+
 			                '"duration" : 4, "lang" : "Chinese", "lep_name" : "SaoKung Lee", "lep_phone" : "6788000000", "contact_one" : "Dr. Roosevelt", '+
 			                '   "contact_two" : "Kofi Mensah","assigned_to":"David Nnkansah", "contact_three" : "",   "inter_gender" : "F",   "client_name" : "Nicholas Brett",    "location_id" : 3,'+
-			                ' "location_notes" : "close to the mall", "request_notes" : "please be clean","called" : "N", "rate" : 35.00}]';			
-							console.log('Inside function Inside Tab-5');*/
-							response = JSON.stringify(response);
+			                ' "location_notes" : "close to the mall", "request_notes" : "please be clean","called" : "N", "rate" : 35.00}]';
+							//response = JSON.stringify(response);
 							response = escape(response);
 							var data = $.parseJSON(response);
 							var eventSrc = [];
