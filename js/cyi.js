@@ -19,14 +19,15 @@
             var tbC = "intr";
             printrows(row1,tbC);
 
-            $('.intr tbody td:not(.table-actions)').click(function(){
-        var thistr = $(this);
-        var tbr = thistr.parent();
-        if (!tbr.hasClass('active'))
-        {
-        tbr.addClass('active');
-        var id  = tbr.attr("id").replace('post-','');
-        var strout = "";
+            $('.intr tbody td:not(.table-actions)').click(function(e){
+                var thistr = $(this);
+                var tbr = thistr.parent();
+                if (!tbr.hasClass('active'))
+                {
+                    tbr.addClass('active');
+
+                    var id  = tbr.getId();
+                    var strout = "";
                     strout +="<tr class='trdrp'><td colspan='12'>";
                     strout +="<div class='dropdown'>";
 
@@ -52,10 +53,12 @@
                     strout +="<label><span>Native Country: </span><span class='country'>"+row2[id].country+"</span></label>";
                     strout +="</fieldset>";
                     strout +="</div></td></tr>";
-        tbr.showRow(strout);
-        }
-        else tbr.hideRow();
-     });
+                    tbr.showRow(strout);        }
+                else
+                {
+                    tbr.hideRow();
+                }
+            });
 
         $('.intr tbody .table-actions .edit').click(function(){
         
