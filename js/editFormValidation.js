@@ -1,7 +1,6 @@
 (function($){
   $(function(){
-	  $("#requestt").validate(
-	  {
+	  $("#requestt").validate({
 	  	submitHandler: function(form){
 
 	    var qString = getFormData(form);
@@ -21,7 +20,7 @@
        console.log(qString);
 	  		var options={
 	  			formData:qString,
-	  			url: /*endpts.interpreting*/
+	  			url: endpts.interpreting
 	  		};
 		ajaxSubmit(options);
 
