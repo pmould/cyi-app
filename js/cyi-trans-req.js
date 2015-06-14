@@ -1,10 +1,10 @@
 ((function($){
-$.getJSON("http://localhost:8080/int_sms/webapi/translation/getdetails", function(response){
+//$.getJSON("http://localhost:8080/int_sms/webapi/translation/getdetails", function(response){
  $(function(){
     
-    //response = '[{ "trans_order_id" : 1,   "doc_type" : "birth certificate",   "client_name" : "Kaiser Permanente",    "lang" : "German",  "timestamp" : "2015-03-02 00:00:00",    "due_date" : "2015-03-10", "notes" : "please hurry up!!!", "cust_email" : "test@yahoo.com",   "nbr_of_pages" : 200,  "cust_phone" : "019900",  "cust_fax" : 0,  "notoring_rqd" : "N", "cust_name" : "Kofi Anane"},{  "trans_order_id" : 2,   "doc_type" : "death certificate",   "client_name" : "Dromadaire Silicon",    "lang" : "French",  "timestamp" : "2015-01-02 00:00:00",    "due_date" : "2015-05-06",  "cust_name" : "Eric Holders", "notes" : "You can take your time....", "cust_email" : "info@test.com",    "nbr_of_pages" : 50,  "cust_phone" : 404789074,  "cust_fax" : 23222345689,  "notoring_rqd" : "Y"},{  "trans_order_id" : 3,   "doc_type" : "marriage certificate",    "client_name" : "Shark Auto LLC",  "lang" : "Spanish", "timestamp" : "2015-02-14 00:00:00",  "due_date" : "2015-03-18",  "cust_name" : "Sepp Blatter", "notes" : "How I love her....", "cust_email" : "bruh@email.org",    "nbr_of_pages" : 20,  "cust_phone" : 5689096,  "cust_fax" : 0,  "notoring_rqd" : "Y"}]';
+    response = '[{ "trans_order_id" : 1,   "doc_type" : "birth certificate",   "client_name" : "Kaiser Permanente",    "lang" : "German",  "timestamp" : "2015-03-02 00:00:00",    "due_date" : "2015-03-10", "notes" : "please hurry up!!!", "cust_email" : "test@yahoo.com",   "nbr_of_pages" : 200,  "cust_phone" : "019900",  "cust_fax" : 0,  "notoring_rqd" : "N", "cust_name" : "Kofi Anane"},{  "trans_order_id" : 2,   "doc_type" : "death certificate",   "client_name" : "Dromadaire Silicon",    "lang" : "French",  "timestamp" : "2015-01-02 00:00:00",    "due_date" : "2015-05-06",  "cust_name" : "Eric Holders", "notes" : "You can take your time....", "cust_email" : "info@test.com",    "nbr_of_pages" : 50,  "cust_phone" : 404789074,  "cust_fax" : 23222345689,  "notoring_rqd" : "Y"},{  "trans_order_id" : 3,   "doc_type" : "marriage certificate",    "client_name" : "Shark Auto LLC",  "lang" : "Spanish", "timestamp" : "2015-02-14 00:00:00",  "due_date" : "2015-03-18",  "cust_name" : "Sepp Blatter", "notes" : "How I love her....", "cust_email" : "bruh@email.org",    "nbr_of_pages" : 20,  "cust_phone" : 5689096,  "cust_fax" : 0,  "notoring_rqd" : "Y"}]';
 
-	   response= JSON.stringify(response);
+	   //response= JSON.stringify(response);
     response= escape(response);
     var data = $.parseJSON(response);
     var row1 = {};
@@ -179,6 +179,6 @@ $.getJSON("http://localhost:8080/int_sms/webapi/translation/getdetails", functio
 
         
         });
-    });
+    //});
 
 })(jQuery);
