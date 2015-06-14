@@ -23,7 +23,7 @@
           async:false,
           url:url,
            success: function(intrlistlang){
-        var intrlistlang = JSON.stringify(intrlistlang);*/
+        var intrlistlang = JSON.stringify(intrlistlang);
         intrlistlang = escape(intrlistlang);
         var data2 = $.parseJSON(intrlistlang); 
          
@@ -34,7 +34,7 @@
         ass_select+="</select>";
         console.log("Inside Select Tag "+i+": \n"+ass_select);
      
-       }});              //this function...
+       }});   */           //this function...
         console.log("Outside Select Tag "+i+": \n"+ass_select);
         row1[v.inter_request_id] ={inter_request_id:v.inter_request_id,assign:ass_select,client:v.client,app_date:v.app_date, start_time:v.start_time,duration:v.duration,lang:v.lang,assigned_to:v.assigned_to, client_name:v.contact_one,called:v.called};
         row2[v.inter_request_id] ={timestamp:v.timestamp, lep_name:v.lep_name,onsite_phone:v.onsite_phone,contact_two:v.contact_two,inter_gender:v.inter_gender,location:v.location, location_notes:v.location_notes,request_notes:v.request_notes,rate:v.rate, location:v.location, legal:v.legal};
