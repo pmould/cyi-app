@@ -26,12 +26,13 @@ function printrows(records, tableClass){
       strout += '<td class="'+arr[i]+'">'+v_+'</td>';
       i++;
     });
-    strout += '<td class="table-actions"><span class="action edit">Edit</span></td>';  //Edit button for each row  
+    strout += '<td class="table-actions"><span class="action edit">Edit</span></td>';  //Edit and button for each row  
     strout += "</tr>";
-    //  console.log(tableClass+": " +strout);
+      //console.log(tableClass+": " +strout);
     $('.'+tableClass+' tbody').append(strout);
     $('.interreq td.sT').text(function(){$(this).text($(this).text().substring(0,5))});
   }); 
+
 }
 $.fn.getId = function (){
   return this.attr("id").replace('post-','');
