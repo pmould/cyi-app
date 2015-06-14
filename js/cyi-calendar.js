@@ -7,7 +7,7 @@
 		 **********************************************************************/
 		var eventSrc = [];
 		//$("a[href='#tabs-5']").click(function(e){
-		$.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/interpreting",
+	//	$.getJSON("http://cyinterpreting.elasticbeanstalk.com/webapi/interpreting",
 						function(response) {
 			            	response = '[{ "inter_request_id" : 1, "timestamp" : "2015-06-14 02:21:42","app_date" : "2015-06-15","start_time" : "15:30:00.0","duration" : 2, "lang" : "French",  "lep_name" : "Romaric Sall",'+
 			                '"contact_one" : "Mitch Arnold", "assigned_to":"Fon Akenji", '+
@@ -179,7 +179,7 @@
 
 							$('#calendar').fullCalendar('gotoDate',
 									eventSrc[0].start);
-						});
+						//});
 		
 					});
 })(jQuery);
