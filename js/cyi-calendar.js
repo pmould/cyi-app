@@ -179,7 +179,7 @@
 
 							$('#calendar').fullCalendar('gotoDate',
 									eventSrc[0].start);
-						//});
+						});
 		
-					});
+					
 })(jQuery);
