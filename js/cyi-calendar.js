@@ -18,7 +18,8 @@
 			                '"timestamp" : "2015-05-24 02:28:54",    "app_date" : "2015-06-20",'+' "start_time" : "08:16:00.0",'+
 			                '"duration" : 4, "lang" : "Chinese", "lep_name" : "SaoKung Lee", "lep_phone" : "6788000000", "contact_one" : "Dr. Roosevelt", '+
 			                '   "contact_two" : "Kofi Mensah","assigned_to":"David Nnkansah", "contact_three" : "",   "inter_gender" : "F",   "client_name" : "Nicholas Brett",    "location_id" : 3,'+
-			                ' "location_notes" : "close to the mall", "request_notes" : "please be clean","called" : "N", "rate" : 35.00}]';
+			                ' "location_notes" : "close to the mall", "request_notes" : "please be clean","called" : "N", "rate" : 35.00}]';			
+							console.log('Inside function Inside Tab-5');
 							//response = JSON.stringify(response);
 							response = escape(response);
 							var data = $.parseJSON(response);
@@ -56,18 +57,14 @@
 									adress : v.location
 								};
 							});
-							// });
 
-							// alert(JSON.stringify(eventSrc[1]));
-							/* Impliment FullCalender.io */
-
-							$('#calendar')
+		$('#calendar')
 									.fullCalendar(
 											{
 												minTime:"06:00:00",
 												maxTime:"21:00:00",
+												height: 300,
 												events : eventSrc,
-												height : 300,
 												defaultView : "agendaWeek",
 												header : {
 													left : 'month,agendaWeek,agendaDay',
@@ -179,7 +176,7 @@
 
 							$('#calendar').fullCalendar('gotoDate',
 									eventSrc[0].start);
-						});
+						//});
 		
-		});			
+					//});
 })(jQuery);
