@@ -169,7 +169,7 @@
 															})// End of q-tip
 													// function-->
 												}
-										//	});
+											});
 							function custom_sort(a, b) {
 								return new Date(a.start).getTime()
 										- new Date(b.start).getTime();
