@@ -392,9 +392,9 @@ table {
 	color:#F5F5F5;
 	text-shadow:none !important;
 }
-.table-actions .edit{background:#4690e5}
+.table-actions .edit{background:#3C4D20}
 .table-actions .save{background:#96cd36}
-.table-actions .edit:hover{background:#2a66a9}
+.table-actions .edit:hover{background:#729738}
 .table-actions .save:hover{background:#729738}
 
 thead, tfoot {
@@ -422,7 +422,6 @@ tr {
 tbody tr {
 	cursor: pointer
 }
-
 /*----- Accordion -----*/
 .accordion, .accordion * {
 	-webkit-box-sizing: border-box;
@@ -478,14 +477,14 @@ tbody tr {
 	border: 1px solid #ccc;
 }
 .active td{
-	background:#daffda !important;
+	background:#e0fdb0 !important;
 	color:#000;
 	text-shadow: 0 1px #fefefe;
 }
 /*Drop Down Styles 
    Interpreter Tab*/
 .admin-tabs .dropdown {
-	background: #daffda;
+	background: #e0fdb0;
 	float: left;
 	width: 100%;
 	display: none;
@@ -496,23 +495,23 @@ tbody tr {
 }
 .admin-tabs fieldset {
 	float: left;
-	width: 100%;
-	border: none;
+	width: 50%;
+        border:none;
+	border-right:2px solid #fff;
 }
 
 .admin-tabs fieldset label {
-	width: 25%;
-	border-left:1px solid #fff;
-	border-top:1px solid #fff;
+	width: 100%;
+	border-top:2px solid #fff;
 	padding:7px;
 	text-align: left;
 	text-indent: 8px;
 	float: left
 }
 
-.admin-tabs fieldset:first-child label{border-top: 0}
+.admin-tabs fieldset:first-child label{}
 
-.admin-tabs fieldset label:first-child {border-left:0}
+.admin-tabs fieldset label:first-child {}
 
 .admin-tabs fieldset label span:first-child {
 	font-weight: 600;
@@ -530,17 +529,15 @@ tbody tr {
 /*Drop Down Styles 
    Interpreter Tab*/
 .transreq fieldset label:first-child {
-	/*width: 300px;*/
 }
 /*Drop Down Styles 
    Interpreter Tab*/
-.interreq fieldset label:first-child, .interreq fieldset label:nth-of-type(2)
-	{ /*width:175px;*/
+.interreq fieldset label:first-child, .interreq fieldset label:nth-of-type(2){
 	
 }
-.interreq fieldset:nth-child(1) label {
-	width: 25%
+.interreq fieldset:nth-child(1) label{
 }
+
 /* Modal CSS */
 .modal-holder{
 	display:none;
