@@ -26,12 +26,13 @@ function printrows(records, tableClass){
       strout += '<td class="'+arr[i]+'">'+v_+'</td>';
       i++;
     });
-    strout += '<td class="table-actions"><span class="action edit">Edit</span></td><td class="table-actions"><span class="action save">Save</span></td>';  //Edit and save buttons for each row  
+    strout += '<td class="table-actions"><span class="action edit">Edit</span></td>';  //Edit and button for each row  
     strout += "</tr>";
-    //         console.log(tableClass+": " +strout);
+      //console.log(tableClass+": " +strout);
     $('.'+tableClass+' tbody').append(strout);
     $('.interreq td.sT').text(function(){$(this).text($(this).text().substring(0,5))});
   }); 
+
 }
 $.fn.getId = function (){
   return this.attr("id").replace('post-','');
@@ -140,12 +141,12 @@ $(function(){
   //show correct form on click
   $('.admin-controls .option').click(function(){
       var box = "#" + this.className.split(" ")[0];
-      $('.modal-holder, ' + box).show();
-      $(box)[0].reset();
+      $('.modal-holder, .modalBox' + box).show();
+      $('.modalBox' + box)[0].reset();
   });
   //close modal when done
-    $('.close,#cancel').click(function(){
-      $('.modal-holder,.modalBox').hide();
+    $('.close, .cancel').click(function(){
+      $('.modal-holder,.modalBox, .editBox').hide();
     });
   //display calendar
     var toggle = 0;
@@ -159,30 +160,30 @@ $(function(){
       }
     });
 
+    //Always keep admin-control bar in user view
     function stick(){
       var win = $(window).scrollTop();
       var h = $('.header').height();
-      if(win > h) $('.admin-controls').css({'position':'fixed','top':0});
-      else $('.admin-controls').css({'position':'absolute','top':0});
+      win > h ? $('.admin-controls').css({'position':'fixed','top':0}) :
+      $('.admin-controls').css({'position':'absolute','top':0});
     }
     $(window).scroll(stick);
 
   //Fill up time and language dropdowns  
   var hourOptions= "",minuteOptions="",langOptions="", countryOptions="";
-  
-  //initialize language array
   var langlist =['---Select Language---',
                  'Afrikaans',
                  'Albanian',
                  'Amharic',
-                 'Arabic Standard ',
-                 'Arabic Maghrebi ',
+                 'Arabic Standard',
+                 'Arabic Maghrebi',
                  'Arabic Yemeni',
                  'Armenian',
                  'Awadhi',
                  'Azerbaijani',
                  'Bambara',
                  'Belarusian',
+                 'Belizean Creole',
                  'Bengali',
                  'Bosnian',
                  'Bulgarian',
@@ -195,7 +196,6 @@ $(function(){
                  'Chinese',
                  'Chaoshan',
                  'Chaozhou',
-                 'Kuki-Chin',
                  'Chokwe',
                  'Creole',
                  'Croatian',
@@ -242,7 +242,10 @@ $(function(){
                  'Kinyarwanda',
                  'Kirundi',
                  'Kone',
+                 'Kono',
                  'Korean',
+                 'Kuki-Chin',
+                 'Krio',
                  'Kurdish',
                  'Ladino',
                  'Laotian',
@@ -329,7 +332,7 @@ $(function(){
     langOptions += "<option value='"+langlist[i]+"'>"+langlist[i]+"</option>";
   for(var i=0;i<24;i++)
     hourOptions += "<option value='"+i+"'>"+i+"</option>";
-  for (var i=0;i<60;i++)
+  for (var i=0;i<60;i+=15)
     minuteOptions += "<option value='"+i+"'>"+i+"</option>";
   $('select[name="start_time_hour"]').append(hourOptions);
   $('select[name="start_time_min"]').append(minuteOptions);

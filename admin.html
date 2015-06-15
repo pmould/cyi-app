@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.min.css">
 <link href='http://fonts.googleapis.com/css?family=Lato|Enriqueta' rel='stylesheet' type='text/css'>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.min.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -17,18 +17,64 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js"></script>
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type= "text/plain" src = "https://raw.githubusercontent.com/pmould/cyi-app/master/js/countries.js"></script>
-<script src="functions.js"></script>
-<script src="cyi.js"></script>
-<script src="cyi-trans-req.js"></script>
-<script src="cyi-clients.js"></script>
-<script src="cyi-interreq.js"></script>
-<script type="text/plain" src="https://raw.githubusercontent.com/pmould/cyi/master/int_sms/formvalidation.js"></script>
-<script type="text/plain" src="https://raw.githubusercontent.com/pmould/cyi/master/int_sms/cyi-calendar.js"></script>
-<script type="text/plain" src="https://raw.githubusercontent.com/pmould/cyi/master/int_sms/jquery.alerts.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/cyi.js"></script>
+<script src="js/cyi-trans-req.js"></script>
+<script src="js/cyi-clients.js"></script>
+<script src="js/cyi-interreq.js"></script>
+<script type="text/javascript" src="https://rawgit.com/pmould/cyi/master/int_sms/formvalidation.js"></script>
+<script type="text/javascript" src="https://rawgit.com/pmould/cyi/master/int_sms/cyi-calendar.js"></script>
+<script type="text/javascript" src="https://rawgit.com/pmould/cyi/master/int_sms/jquery.alerts.js"></script>
+<script type="text/javascript" src="https://rawgit.com/yasare16/cyi-app/patch-1/js/editFormValidation.js"></script>
 
 <script>
 	$(function() {
 		$("#admin-tabs").tabs();
+
+		var client = [
+			      "Aadvark",
+			      "Applebees",
+			      "Aspersian",
+			      "BASIC TRANSLATION",
+			      "Clinic of Sorts",
+			      "Cracka-lackin",
+			      "Clover Ministries",
+			      "COBOLO",
+			      "ColdMan Sachs",
+			      "Downy & Sons",
+			      "Erthing",
+			      "Foo",
+			      "Georgia Tech",
+			      "Haskell",
+			      "Jasper Corp",
+			      "Liwinsky Business Agency",
+			      "Prada",
+			      "Police Academy",
+			      "Monty Python Pirate Translations",
+			      "Ruby",
+			      "Scalar Translations",
+			      "Tullow Book Services",
+			      "United Nations"
+			    ];
+			$('.c').autocomplete({
+				source : client,
+				autoFocus: true
+				/*source: function( request, response ) {
+					        $.ajax({
+					          url: "http://api.geonames.org/export/geonamesData.js?username=demo",
+					          dataType: "jsonp",
+					          data: {
+					            q: request.term
+					          },
+					          success: function( data ) {
+					            response( data );
+					          }
+					    	});
+					    }*/
+
+			});
+
+			//$('.c').attr('autocomplete', 'on');
 	});
 </script>
 
@@ -306,6 +352,7 @@ h2 {
 	text-transform:uppercase;
 	text-align:center;
 	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
 }
 
 .option, .footer p {
@@ -319,7 +366,7 @@ h2 {
 
 .footer p{border-top: 0}
 
-.admin-controls-nav .option:hover{background:#888;color:#f1f1f1;}
+.admin-controls-nav .option:hover{background:#575757;color:#f1f1f1;box-shadow:inset -2px 2px 15px #333;border-top-color: #fefefe;}
 .admin-controls-nav .option:hover > .fa{color:#f1f1f1;text-shadow:1px 1px 5px #666}
 
 .admin-controls-nav .option:first-child{border-top:0}
@@ -341,7 +388,7 @@ h2 {
 	width:200px;
 	padding:40px;
 	margin-left:210px;
-	margin-top:10px;
+	margin-top:20px;
 	border:1px solid #CCC;
 	border-radius:4px;
 	background:#F5F5F5;
@@ -388,6 +435,13 @@ h2 {
 	cursor: pointer
 }
 #calendar .fa-close:hover{color:#729738}
+#calendar .fa-close:after {
+	content:"close";
+	position:absolute;
+	left:-30px;
+	top:14px;
+	font-size: 0.4em;
+}
 
 /*JQUERY UI CSS <Modifications*/
 .ui-widget-content{border:0;}
@@ -398,6 +452,10 @@ h2 {
 .ui-state-active a{text-transform:uppercase;font-weight:bold;background:#3c4d20}
 .ui-state-active a:hover{background:#3c4d20 !important;color:#fff}
 .ui-state-active a:focus, .ui-state-default li:focus{outline:0}
+
+.ui-menu .ui-menu-item{border-bottom: 1px solid #ccc;margin:-1px;}
+.ui-widget-content .ui-state-focus{color:#fff;background:#96cd36;border:0;border-bottom:1px solid #ccc}
+
 
 table {
 	border-collapse: separate;
@@ -415,9 +473,9 @@ table {
 	color:#F5F5F5;
 	text-shadow:none !important;
 }
-.table-actions .edit{background:#4690e5}
+.table-actions .edit{background:#3C4D20}
 .table-actions .save{background:#96cd36}
-.table-actions .edit:hover{background:#2a66a9}
+.table-actions .edit:hover{background:#729738}
 .table-actions .save:hover{background:#729738}
 
 thead, tfoot {
@@ -431,7 +489,7 @@ thead th, tfoot th {
 }
 tfoot th{border-top:1px solid #ccc;}
 
-table tr:nth-child(even) td{
+table tr[id*="post-"]:nth-child(even) td{
 	background: #f8f8f8;
 }
 
@@ -596,41 +654,42 @@ table th, table td {
 	border: 1px solid #ccc;
 }
 .active td{
-	background: #ddd!important;
+	background:#daffda !important;
 	color:#000;
 	text-shadow: 0 1px #fefefe;
 }
 /*Drop Down Styles 
    Interpreter Tab*/
 .admin-tabs .dropdown {
-	background: rgba(243, 243, 243, 0.85);
+	background: #daffda;
 	float: left;
 	width: 100%;
 	display: none;
+	text-shadow: 0 1px #fefefe;
 }
 .admin-tabs .trdrp td {
 	padding: 0px
 }
 .admin-tabs fieldset {
 	float: left;
+	width: 50%;
+        border:none;
+	border-right:2px solid #fff;
+}
+
+.admin-tabs fieldset label {
 	width: 100%;
-	border: none;
-}
-.admin-tabs fieldset label {
-	float: left
-}
-.admin-tabs fieldset label:first-child {
-	border-left:0;
-	
-}
-.admin-tabs fieldset label {
-	width: 25%;
-	border-left:1px solid #fff;
-	border-top:1px solid #fff;
+	border-top:2px solid #fff;
 	padding:7px;
 	text-align: left;
 	text-indent: 8px;
+	float: left
 }
+
+.admin-tabs fieldset:first-child label{}
+
+.admin-tabs fieldset label:first-child {}
+
 .admin-tabs fieldset label span:first-child {
 	font-weight: 600;
 	color: #729738;
@@ -647,21 +706,21 @@ table th, table td {
 /*Drop Down Styles 
    Interpreter Tab*/
 .transreq fieldset label:first-child {
-	/*width: 300px;*/
 }
 /*Drop Down Styles 
    Interpreter Tab*/
-.interreq fieldset label:first-child, .interreq fieldset label:nth-of-type(2)
-	{ /*width:175px;*/
+.interreq fieldset label:first-child, .interreq fieldset label:nth-of-type(2){
 	
 }
-.interreq fieldset:nth-child(1) label {
-	width: 25%
+.interreq fieldset:nth-child(1) label{
 }
+
 /* Modal CSS */
 .modal-holder{
 	display:none;
 	position:fixed;
+	top:0;
+	left:0;
 	z-index:1000;
 	width:100%;
 	height:100%;
@@ -684,62 +743,71 @@ table th, table td {
 	font-size:0.8em;
 
 }
-.modalBox {
+.modalBox, .editBox {
 	display: none;
 	position: absolute;
 	top: 8%;
 	width: 80%;
 	margin: 0 10%;
-	background: rgba(255, 255, 255, 0);
 	padding: 15px
 }
-.modalBox div {
+.modalBox div,
+.editBox div {
 	padding: 15px;
 	margin:0 auto;
 	width:50%;
 }
-.modalBox h2 {
+.modalBox h2,
+.editBox h2{
 	text-align: center;
 	text-transform: uppercase;
 }
 
-.modalBox h2 .fa{margin:0 5px;}
+.modalBox h2 .fa,
+.editBox h2 .fa{margin:0 5px;}
 
-.modalBox label {
+.modalBox label,
+.editBox label {
+	display: block;
 }
 
-.modalBox input, .modalBox select {
+.modalBox input, .modalBox select,
+.editBox input, .editBox select {
 	border-radius: 5px;
 	padding: 5px;
 	background: #575757;
 	color: #f1f1f1;
-	margin-top: 5px
+	font-family: "Enriqueta", Georgia, "Times New Roman", serif;
+	margin-top: 5px;
+	outline:0;
 }
-.modalBox input, .modalBox textarea {
-	display: block;
+.modalBox input, .modalBox textarea,
+.editBox input, .editBox textarea {
 	width: 100%;
 	background: #575757;
-	color: #f1f1f1
+	color: #f1f1f1;
+	text-transform: capitalize;
 }
-.modalBox textarea {
-	height: 190px
+.modalBox textarea,
+.editBox textarea {
+	height: 190px;
+	outline:0;
+	font-family: "Enriqueta", Georgia, "Times New Roman", serif;
 }
-.modalBox input::-webkit-input-placeholder, .modalBox textarea::-webkit-input-placeholder
-	{
+.modalBox input::-webkit-input-placeholder, .modalBox textarea::-webkit-input-placeholder,
+.editBox input::-webkit-input-placeholder, .editBox textarea::-webkit-input-placeholder{
 	color: #fff
 }
-.modalBox input:-moz-placeholder, .modalBox textarea:-moz-placeholder {
+.modalBox input::-moz-placeholder, .modalBox textarea::-moz-placeholder,
+.editBox input::-moz-placeholder, .editBox textarea::-moz-placeholder{
 	color: #fff
 }
-.modalBox input::-moz-placeholder, .modalBox textarea::-moz-placeholder
-	{
+.modalBox input:-ms-input-placeholder, .modalBox textarea:-ms-input-placeholder,
+.editBox input:-ms-input-placeholder, .editBox textarea:-ms-input-placeholder{
 	color: #fff
 }
-.modalBox input:-ms-input-placeholder, .modalBox textarea::-webkit-input-placeholder
-	{
-	color: #fff
-}
-.modalBox .request {
+.modalBox .request,
+.editBox .request {
 	width: initial;
 	float: right;
 	background: #96CD36
@@ -764,9 +832,9 @@ table th, table td {
 	cursor: pointer
 }
 
-#cancel {
-	background: #575757;
-	float: left
+.cancel {
+	background: #575757 !important;
+	float: left !important
 }
 select[name="prim_lang"], select[name="secnd_lang"], select[name="third_lang"], select[name="fourth_lang"]
 	{
@@ -806,7 +874,7 @@ label.error {
 {width: 100%;padding: 9px 10px;}
 .qtip-bootstrap{background-color: rgba(255, 255, 255, 0.9)}
 .qtip-bootstrap .qtip-content {padding: 0px}
-.tooltip-title{text-decoration: underline;font-weight:bolder;} 
+.tooltip-title{text-decoration: underline;font-weight:bolder} 
 </style>
 
 </head>
@@ -816,28 +884,19 @@ label.error {
   	<div id="calendar"><i class="fa fa-close cal-close"></i></div>
   </div>
   <div class="modal-holder">
-	<div class="modal">
+	<div class="modal ui-widget">
 		<div class="close"><i class="fa fa-close"></i></div>
 		<form id="requestt" class="modalBox clearfix">
 			<h2><i class="fa fa-plus-circle"></i>Create Request</h2>
-			<div>
+			<div class="ui-front">
 				<input name="client" type="text" placeholder="Client"
-					class="required">
+					class="required c">
 			</div>
 			<div>
 				<label class="required">Appointment Date</label><input
 					name="app_date" type="date">
 			</div>
-			<div>
-				<label>Appointment Type</label>
-				<select name="app_type" type="text">
-					<option value='Med' selected>Medical</option>
-					<option value='Cpmm'>Community</option>
-					<option value='Leg'>Legal</option>
-					<option value='Co'>Court</option>
-					<option value='Conf'>Conference</option>
-				</select>
-			</div>
+			
 			<div>
 				<label class="required">Start Time</label> <select
 					name="start_time_hour" type="number"></select> :<select
@@ -846,6 +905,14 @@ label.error {
 			<div>
 				<input name="duration" type="number" placeholder="Duration (in hrs)"
 					class="required">
+			</div>
+			<div>
+				<label>Legal</label><select
+					name="legal" type="text"
+					placeholder="Legal">
+					<option value='N'>No</option>
+					<option value='Y' selected>Yes</option>
+				</select>
 			</div>
 			<div>
 				<label class="required">Language</label><select name="lang"
@@ -866,7 +933,7 @@ label.error {
 				<input name="contact_three" type="text" placeholder="Onsite Contact 2">
 			</div>
 			<div>
-				<label>Gender</label> <select name="inter_gender" type="text">
+				<label>Gender</label><select name="inter_gender" type="text">
 					<option value='N'>Male</option>
 					<option value='Y' selected>Female</option>
 				</select>
@@ -875,7 +942,11 @@ label.error {
 				<input name="rate" type="number" placeholder="Rate">
 			</div>
 			<div>
-				<input name="adress" type="text" placeholder="Location">
+				<input name="location" type="text" placeholder="Location">
+			</div>
+			<div>
+				<label>Confirmed To Client(Follow Up Call)</label>
+				<select name="called"><option value="N" selected="selected">No</option><option value="Y">Yes</option></select>
 			</div>
 			<div>
 				<textarea name="location_notes" placeholder="Location Notes"></textarea>
@@ -884,16 +955,16 @@ label.error {
 				<textarea name="request_notes" placeholder="Request Notes"></textarea>
 			</div>
 			<div>
-				<input id="cancel" type="button" value="CANCEL" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 				<input type="submit" value="SUBMIT" class="request">
 			</div>
 		</form>
 
 		<form id="order" class="modalBox clearfix">
 			<h2><i class="fa fa-cart-plus"></i>Create Order</h2>
-			<div>
+			<div class="ui-front">
 				<input name="client_name" type="text" placeholder="Client Name"
-					class="required">
+					class="required c">
 			</div>
 			<div>
 				<label class="required">Date Due</label><input name="due_date"
@@ -922,7 +993,7 @@ label.error {
 				<input name="cust_email" type="text" placeholder="Email">
 			</div>
 			<div>
-				<label class="required">Language </label><select name="lang"
+				<label class="required">Language</label><select name="lang"
 					type="text" placeholder="Language" class="required"></select>
 			</div>
 			<div>
@@ -944,19 +1015,19 @@ label.error {
 
 
 			<div>
-				<input type="submit" value="SUBMIT" class="request"> <input
-					id="cancel" type="button" value="CANCEL" class="request">
+				<input type="submit" value="SUBMIT" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 			</div>
 		</form>
 
 		<form id="client" class="modalBox clearfix">
 			<h2><i class="fa fa-bank"></i>Create New Client</h2>
-			<div>
+			<div class="ui-front">
 				<input name="name" type="text" placeholder="Client Name"
-					class="required">
+					class="required c">
 			</div>
 			<div>
-				<input name="contact_name" type="text" placeholder="Contact Name"
+				<input name="contact" type="text" placeholder="Contact Name"
 					class="required">
 			</div>
 			<div>
@@ -992,7 +1063,7 @@ label.error {
 			</div>
 
 			<div>
-				<input id="cancel" type="button" value="CANCEL" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 				<input type="submit" value="SUBMIT" class="request">
 			</div>
 		</form>
@@ -1029,28 +1100,38 @@ label.error {
 					class="required">
 			</div>
 			<div>
+				<label>Appointment Type</label>
+				<select name="app_type" type="text">
+					<option value='Med' selected>Medical</option>
+					<option value='Cpmm'>Community</option>
+					<option value='Leg'>Legal</option>
+					<option value='Co'>Court</option>
+					<option value='Conf'>Conference</option>
+				</select>
+			</div>
+			<div>
 				<label class="required" style="display:block">Primary Language </label>
 				<select style="display:inline-block" name="prim_lang" type="text" placeholder="Primary Language" class="required"></select>
-				<input style="display:inline-block;width: 25%" name="hourly_rate" type="number" placeholder="Hourly Rate"
+				<input style="display:inline-block;width: 25%" name="hourly_rate" type="number" placeholder="Rate"
 					class="required">
 			</div>
 			<div>
 				<label style="display:block">Secondary Language </label><select style="display:inline-block" 
 					name="secnd_lang" type="text" placeholder="Secondary Language"
 					></select>
-				<input style="display:inline-block;width: 25%" name="rate2" type="number" placeholder="Hourly Rate">
+				<input style="display:inline-block;width: 25%" name="rate2" type="number" placeholder="Rate">
 			</div>
 			<div>
 				<label style="display:block">Third Language </label><select style="display:inline-block" 
 					name="third_lang" type="text" placeholder="Third Language"
 				    ></select>
-				<input style="display:inline-block;width: 25%" name="rate3" type="number" placeholder="Hourly Rate">
+				<input style="display:inline-block;width: 25%" name="rate3" type="number" placeholder="Rate">
 			</div>
 			<div>
 				<label style="display:block">Fourth Language </label><select style="display:inline-block" 
 					name="fourth_lang" type="text" placeholder="Fourth Language"
 				    ></select>
-				<input style="display:inline-block;width: 25%" name="rate4" type="number" placeholder="Hourly Rate">
+				<input style="display:inline-block;width: 25%" name="rate4" type="number" placeholder="Rate">
 			</div>
 			<div>
 				<label>Native Country </label><select id="country"
@@ -1097,13 +1178,20 @@ label.error {
 			</div>
 
 			<div>
-				<input id="cancel" type="button" value="CANCEL" class="request">
+				<input type="button" value="CANCEL" class="request cancel">
 				<input type="submit" value="SUBMIT" class="request">
 			</div>
 		</form>
+
+		<!--edit form-->
+		<form class="editBox clearfix">
+			<h2><i class="fa fa-edit"></i>Edit</h2>
+			<p></p> <!--this p tag serves as a container for edit form replacement-->
+		</form>
+
 	</div>
   </div>
-	<!--end modal-->
+	<!--end modal-holder-->
 
 	<div class="header">
 		<div class="inner-fluid clearfix">
@@ -1138,13 +1226,13 @@ label.error {
 
 		<div id="admin-tabs" class="floated admin-tabs">
 			<ul>
-				<li><a href="#tabs-5">QuickBooks</a></li>
 				<li><a href="#tabs-1">Requests</a></li>
 				<li><a href="#tabs-2">Orders</a></li>
 				<li><a href="#tabs-3">Clients</a></li>
 				<li><a href="#tabs-4">Interpreters</a></li>
+                                <li><a href="#tabs-5">Accounting</a></li>
 			</ul>
-			<div id="tabs-5" class="requestcal">
+			<div id="tabs-5" class="accounting">
 				
 			</div>
 			<div id="tabs-1" class="interreq">
@@ -1162,7 +1250,6 @@ label.error {
 							<th class="cN">Onsite Contact</th>
 							<th class="fU">Follow Up Call</th>
 							<th class=""></th>
-							<th class=""></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1179,7 +1266,6 @@ label.error {
 							<th class="aDM">Assigned To</th>
 							<th class="cN">Onsite Contact</th>
 							<th class="fU">Follow Up Call</th>
-							<th class=""></th>
 							<th class=""></th>
 						</tr>
 					</tfoot>
@@ -1199,7 +1285,6 @@ label.error {
 							<th class="eM">Email</th>
 							<th class="nA">Contact Name</th>
 							<th class=""></th>
-							<th class=""></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1214,7 +1299,6 @@ label.error {
 							<th class="nP">Nbr of Pages</th>
 							<th class="eM">Email</th>
 							<th class="nA">Contact Name</th>
-							<th class=""></th>
 							<th class=""></th>
 						</tr>
 					</tfoot>
@@ -1233,7 +1317,6 @@ label.error {
 							<th class="cE">Cell</th>
 							<th class="Fa">Fax</th>
 							<th class=""></th>
-							<th class=""></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1246,7 +1329,6 @@ label.error {
 							<th class="pH">Phone</th>
 							<th class="cE">Cell</th>
 							<th class="Fa">Fax</th>
-							<th class=""></th>
 							<th class=""></th>
 						</tr>
 					</tfoot>
@@ -1268,9 +1350,10 @@ label.error {
 							<th class="aV">Avail</th>
 							<th class="cE">Certif</th>
 							<th class=""></th>
-							<th class=""></th>
 						</tr>
 					</thead>
+					<tbody>
+					</tbody>
 					<tfoot>
 						<tr>
 							<th class="iD">ID</th>
@@ -1283,11 +1366,8 @@ label.error {
 							<th class="aV">Avail</th>
 							<th class="cE">Certif</th>
 							<th class=""></th>
-							<th class=""></th>
 						</tr>
 					</tfoot>
-					<tbody>
-					</tbody>
 				</table>
 			</div>
 			<!--//End of Tab 4-->
@@ -1302,52 +1382,66 @@ label.error {
 </body>
 
 <script type="text/javascript">
-	$(document).ready(
-			function(e) {
-				$('.item')
-						.click(
-								function(e) {
-									if ($(this).next('.item-data').css(
-											'display') != 'block') {
-										$('.active').slideUp('fast')
-												.removeClass('active');
-										$(this).next('.item-data').addClass(
-												'active').slideDown('slow');
-									} else {
-										$('.active').slideUp('fast')
-												.removeClass('active');
-									}
-								});
-			});
-	//Modal script
-		/*//close modal when done
-		$('.close,#cancel').click(function(){
-			$('.modal-holder,.modalBox').hide();
+	$(document).ready(function(e) {
+		$('.item').click(function(e) {
+			if ($(this).next('.item-data').css('display') != 'block') {
+				$('.active').slideUp('fast').removeClass('active');
+				$(this).next('.item-data').addClass('active').slideDown('slow');
+			} else
+				$('.active').slideUp('fast').removeClass('active');
 		});
-		//show correct form on click
-		$('.admin-controls .option').click(function(){
-			var box = "#" + this.className.split(" ")[0];
-			$('.modal-holder, ' + box).show();
-		});
-		//display calendar
-		var toggle = 0;
-		$('.cal-close').click(function(){
-			if(toggle == 0){
-				$('.inner.calendar').css('top',0);
-				toggle = 1;
-			}else if(toggle == 1){
-				$('.inner.calendar').css('top',-400);
-				toggle = 0;
-			}
-		});
+		
+	});// doc.ready
+			
 
-		function stick(){
-			var win = $(window).scrollTop();
-			var h = $('.header').height();
-			if(win > h) $('.admin-controls').css({'position':'fixed','top':0});
-			else $('.admin-controls').css({'position':'absolute','top':0});
-		}
-		$(window).scroll(stick);*/
+		response = '[{ "inter_request_id" : 1, "timestamp" : "2015-06-14 02:21:42","app_date" : "2015-06-15","start_time" : "15:30:00.0","duration" : 2, "lang" : "French",  "lep_name" : "Romaric Sall",'+
+			                '"contact_one" : "Mitch Arnold", "assigned_to":"Fon Akenji", '+
+			                ' "contact_two" : "Phil Cameron", "contact_three" : "",   "inter_gender" : "M",   "client_name" : "Ron Stewart",'+  
+			                '"location_id" : 3,  "location_notes" : "far away",  "request_notes" : "please be polite", "onsite_phone":"770-596-1305",'+
+			                '"called" : "N", "rate" : 25.00,"location" : "5444 Barwyn Dr Rex"},'+
+			                '{"location" : "5444 Barwyn Dr Rex",  "onsite_phone":"770-596-1305", "inter_request_id" : 2, '+
+			                '"timestamp" : "2015-05-24 02:28:54",    "app_date" : "2015-06-20",'+' "start_time" : "08:16:00.0",'+
+			                '"duration" : 4, "lang" : "Chinese", "lep_name" : "SaoKung Lee", "lep_phone" : "6788000000", "contact_one" : "Dr. Roosevelt", '+
+			                '   "contact_two" : "Kofi Mensah","assigned_to":"David Nnkansah", "contact_three" : "",   "inter_gender" : "F",   "client_name" : "Nicholas Brett",    "location_id" : 3,'+
+			                ' "location_notes" : "close to the mall", "request_notes" : "please be clean","called" : "N", "rate" : 35.00}]';			
+							
+							//response = JSON.stringify(response);
+							response = escape(response);
+							var data = $.parseJSON(response);
+							var eventSrc = [];
+							$.each(data, function(i, v) {
+								var st = v.start_time.substring(0, 8);
+								var sd = v.app_date;
+								var start = sd + "T" + st;
+								var endDate = new Date(start);
+								endDate.setHours(endDate.getHours()
+										+ v.duration);
+								end = endDate.toISOString();
+								eventSrc[i] = {
+									id : v.inter_request_id,
+									inter_id : v.inter_request_id,
+									title : v.contact_one,
+									start : start,
+									end : end,
+									assigned_to : v.assigned_to,
+									lang : v.lang,
+									app_date : v.app_date,
+									start_time : v.start_time,
+									duration : v.duration,
+									lang : v.lang,
+									assigned_to : v.assigned_to,
+									called : v.called,
+									timestamp : v.timestamp,
+									lep_name : v.lep_name,
+									onsite_phone : v.onsite_phone,
+									contact_two : v.contact_two,
+									inter_gender : v.inter_gender,
+									location_notes : v.location_notes,
+									request_notes : v.request_notes,
+									rate : v.rate,
+									adress : v.location
+								};
+							});
 
 		$('#calendar')
 									.fullCalendar(
@@ -1355,7 +1449,7 @@ label.error {
 												minTime:"06:00:00",
 												maxTime:"21:00:00",
 												height: 300,
-												//events : eventSrc,
+												events : eventSrc,
 												defaultView : "agendaWeek",
 												header : {
 													left : 'month,agendaWeek,agendaDay',
@@ -1455,7 +1549,7 @@ label.error {
 																	event : false
 																}
 															})// End of q-tip
-													// function-->
+													// function
 												}
 											});
 							function custom_sort(a, b) {
@@ -1463,10 +1557,10 @@ label.error {
 										- new Date(b.start).getTime();
 							}
 
-							//eventSrc.sort(custom_sort);
+							eventSrc.sort(custom_sort);
 
-							/*$('#calendar').fullCalendar('gotoDate',
-									eventSrc[0].start);*/
+							$('#calendar').fullCalendar('gotoDate',
+									eventSrc[0].start);
 						//});
 		
 					//});

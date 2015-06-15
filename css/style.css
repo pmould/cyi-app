@@ -271,6 +271,7 @@ h2 {
 	text-transform:uppercase;
 	text-align:center;
 	border-right:1px solid #ccc;
+	border-top:1px solid #ccc;
 }
 
 .option, .footer p {
@@ -284,7 +285,7 @@ h2 {
 
 .footer p{border-top: 0}
 
-.admin-controls-nav .option:hover{background:#888;color:#f1f1f1;}
+.admin-controls-nav .option:hover{background:#575757;color:#f1f1f1;box-shadow:inset -2px 2px 15px #333;border-top-color: #fefefe;}
 .admin-controls-nav .option:hover > .fa{color:#f1f1f1;text-shadow:1px 1px 5px #666}
 
 .admin-controls-nav .option:first-child{border-top:0}
@@ -306,7 +307,7 @@ h2 {
 	width:200px;
 	padding:40px;
 	margin-left:210px;
-	margin-top:10px;
+	margin-top:20px;
 	border:1px solid #CCC;
 	border-radius:4px;
 	background:#F5F5F5;
@@ -353,6 +354,13 @@ h2 {
 	cursor: pointer
 }
 #calendar .fa-close:hover{color:#729738}
+#calendar .fa-close:after {
+	content:"close";
+	position:absolute;
+	left:-30px;
+	top:14px;
+	font-size: 0.4em;
+}
 
 /*JQUERY UI CSS <Modifications*/
 .ui-widget-content{border:0;}
@@ -363,6 +371,10 @@ h2 {
 .ui-state-active a{text-transform:uppercase;font-weight:bold;background:#3c4d20}
 .ui-state-active a:hover{background:#3c4d20 !important;color:#fff}
 .ui-state-active a:focus, .ui-state-default li:focus{outline:0}
+
+.ui-menu .ui-menu-item{border-bottom: 1px solid #ccc;margin:-1px;}
+.ui-widget-content .ui-state-focus{color:#fff;background:#96cd36;border:0;border-bottom:1px solid #ccc}
+
 
 table {
 	border-collapse: separate;
@@ -396,7 +408,7 @@ thead th, tfoot th {
 }
 tfoot th{border-top:1px solid #ccc;}
 
-table tr:nth-child(even) td{
+table tr[id*="post-"]:nth-child(even) td{
 	background: #f8f8f8;
 }
 
@@ -410,102 +422,7 @@ tr {
 tbody tr {
 	cursor: pointer
 }
-/*.iD {
-	width: 50%
-}
-.interreq  td.dU::after {
-	content: " hours"
-}
-.interreq .aID {
-	width: 100%
-}
-.interreq .aDM, .interreq .aDU {
-	width: 100%;
-}
-.interreq .sT, .interreq .eT {
-	width: 100%;
-}
-.interreq .La {
-	width: 100%;
-}
-.interreq .cN {
-	width: 100%;
-}
-.interreq .fU {
-	width: 100%;
-}
-.interreq .aS {
-	width: 5.5em;
-}
-td.Ass {
-	border-right: 1px solid #CCC;
-	border-left: 1px solid #CCC
-}
-td.aSS select {
-	width: 100%
-}
-td.aSS {border-right: 1px solid #CCC;border-left: 1px solid #CCC}
-        td.Ass select {width: 100%}
-.transreq .aID {
-	width: 100%
-}
-.transreq .dR {
-	width: 100%;
-}
-.transreq .dD {
-	width: 100%;
-}
-.transreq .lA {
-	width: 100%;
-}
-.transreq .cA {
-	width: 100%;
-}
-.transreq .fU {
-	width: 5.5em;
-}
-.clients .fN {
-	width: 100%
-}
-.clients .nL {
-	width: 100%;
-}
-.clients .aDD {
-	width: 100%;
-}
-.clients .pH {
-	width: 100%;
-}
-.clients .cE {
-	width: 100%;
-}
-.clients .eM {
-	width: 100%;
-}
-.intr .iID {
-	width: 100%
-}
-.intr .fN {
-	width: 100%
-}
-.intr .lA {
-	width: 100%
-}
-.intr .aDD {
-	width: 100%
-}
-.intr .pL {
-	width: 100%
-}
-.intr .aV {
-	width: 100%
-}
-table th, table td {
-	width: 100%
-}
-.header {
-	background-color: yellow
-}*/
+
 /*----- Accordion -----*/
 .accordion, .accordion * {
 	-webkit-box-sizing: border-box;
@@ -561,17 +478,18 @@ table th, table td {
 	border: 1px solid #ccc;
 }
 .active td{
-	background: #ddd!important;
+	background:#daffda !important;
 	color:#000;
 	text-shadow: 0 1px #fefefe;
 }
 /*Drop Down Styles 
    Interpreter Tab*/
 .admin-tabs .dropdown {
-	background: rgba(243, 243, 243, 0.85);
+	background: #daffda;
 	float: left;
 	width: 100%;
 	display: none;
+	text-shadow: 0 1px #fefefe;
 }
 .admin-tabs .trdrp td {
 	padding: 0px
@@ -581,13 +499,7 @@ table th, table td {
 	width: 100%;
 	border: none;
 }
-.admin-tabs fieldset label {
-	float: left
-}
-.admin-tabs fieldset label:first-child {
-	border-left:0;
-	
-}
+
 .admin-tabs fieldset label {
 	width: 25%;
 	border-left:1px solid #fff;
@@ -595,7 +507,13 @@ table th, table td {
 	padding:7px;
 	text-align: left;
 	text-indent: 8px;
+	float: left
 }
+
+.admin-tabs fieldset:first-child label{border-top: 0}
+
+.admin-tabs fieldset label:first-child {border-left:0}
+
 .admin-tabs fieldset label span:first-child {
 	font-weight: 600;
 	color: #729738;
@@ -612,7 +530,7 @@ table th, table td {
 /*Drop Down Styles 
    Interpreter Tab*/
 .transreq fieldset label:first-child {
-/*	width: 300px;*/
+	/*width: 300px;*/
 }
 /*Drop Down Styles 
    Interpreter Tab*/
@@ -627,6 +545,8 @@ table th, table td {
 .modal-holder{
 	display:none;
 	position:fixed;
+	top:0;
+	left:0;
 	z-index:1000;
 	width:100%;
 	height:100%;
@@ -649,62 +569,71 @@ table th, table td {
 	font-size:0.8em;
 
 }
-.modalBox {
+.modalBox, .editBox {
 	display: none;
 	position: absolute;
 	top: 8%;
 	width: 80%;
 	margin: 0 10%;
-	background: rgba(255, 255, 255, 0);
 	padding: 15px
 }
-.modalBox div {
+.modalBox div,
+.editBox div {
 	padding: 15px;
 	margin:0 auto;
 	width:50%;
 }
-.modalBox h2 {
+.modalBox h2,
+.editBox h2{
 	text-align: center;
 	text-transform: uppercase;
 }
 
-.modalBox h2 .fa{margin:0 5px;}
+.modalBox h2 .fa,
+.editBox h2 .fa{margin:0 5px;}
 
-.modalBox label {
+.modalBox label,
+.editBox label {
+	display: block;
 }
 
-.modalBox input, .modalBox select {
+.modalBox input, .modalBox select,
+.editBox input, .editBox select {
 	border-radius: 5px;
 	padding: 5px;
 	background: #575757;
 	color: #f1f1f1;
-	margin-top: 5px
+	font-family: "Enriqueta", Georgia, "Times New Roman", serif;
+	margin-top: 5px;
+	outline:0;
 }
-.modalBox input, .modalBox textarea {
-	display: block;
+.modalBox input, .modalBox textarea,
+.editBox input, .editBox textarea {
 	width: 100%;
 	background: #575757;
-	color: #f1f1f1
+	color: #f1f1f1;
+	text-transform: capitalize;
 }
-.modalBox textarea {
-	height: 190px
+.modalBox textarea,
+.editBox textarea {
+	height: 190px;
+	outline:0;
+	font-family: "Enriqueta", Georgia, "Times New Roman", serif;
 }
-.modalBox input::-webkit-input-placeholder, .modalBox textarea::-webkit-input-placeholder
-	{
+.modalBox input::-webkit-input-placeholder, .modalBox textarea::-webkit-input-placeholder,
+.editBox input::-webkit-input-placeholder, .editBox textarea::-webkit-input-placeholder{
 	color: #fff
 }
-.modalBox input:-moz-placeholder, .modalBox textarea:-moz-placeholder {
+.modalBox input::-moz-placeholder, .modalBox textarea::-moz-placeholder,
+.editBox input::-moz-placeholder, .editBox textarea::-moz-placeholder{
 	color: #fff
 }
-.modalBox input::-moz-placeholder, .modalBox textarea::-moz-placeholder
-	{
+.modalBox input:-ms-input-placeholder, .modalBox textarea:-ms-input-placeholder,
+.editBox input:-ms-input-placeholder, .editBox textarea:-ms-input-placeholder{
 	color: #fff
 }
-.modalBox input:-ms-input-placeholder, .modalBox textarea::-webkit-input-placeholder
-	{
-	color: #fff
-}
-.modalBox .request {
+.modalBox .request,
+.editBox .request {
 	width: initial;
 	float: right;
 	background: #96CD36
@@ -729,9 +658,9 @@ table th, table td {
 	cursor: pointer
 }
 
-#cancel {
-	background: #575757;
-	float: left
+.cancel {
+	background: #575757 !important;
+	float: left !important
 }
 select[name="prim_lang"], select[name="secnd_lang"], select[name="third_lang"], select[name="fourth_lang"]
 	{
@@ -752,16 +681,23 @@ label.error {
 	color: #fff;
 	text-shadow: none
 }
-.fc-title{padding-top:10px !important}
+
+.fc-title
+{
+	padding-top:10px !important;
+}
 .fc-time-grid .fc-slats td {
   height: 35px;
   border-bottom: 0;
 }
 .qtip .item, .qtip .qtip-title{padding: 5px 10px;font-size: 12px;line-height: 12px;width: 210px;margin-right: -28px;}
 .qtip .item:nth-of-type(even) {background: rgba(243, 243, 243, 0.85);}
-.qtip .name{font-style:italic;width: 106px;display:inline-block;}
-.qtip .value{font-weight:800;width: 77px;display:inline-block;vertical-align:top}
-.qtip-content{width: 100%;padding: 9px 10px}
-.qtip-bootstrap{background:#fefefe}
-.qtip-bootstrap .qtip-content {padding:0}
-.tooltip-title{text-decoration:underline;font-weight:bold}
+.qtip .name
+{font-style:italic;width: 106px;display:inline-block;}
+.qtip .value
+{font-weight:800;width: 77px;display:inline-block;vertical-align: top;}
+.qtip-content
+{width: 100%;padding: 9px 10px;}
+.qtip-bootstrap{background-color: rgba(255, 255, 255, 0.9)}
+.qtip-bootstrap .qtip-content {padding: 0px}
+.tooltip-title{text-decoration: underline;font-weight:bolder} 
