@@ -181,5 +181,5 @@
 									eventSrc[0].start);
 						});
 		
-		//});			
+		});			
 })(jQuery);
